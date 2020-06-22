@@ -19,8 +19,8 @@ namespace Lab1PlaceGroup {
     [Regeneration(RegenerationOption.Manual)]
     public class Class1 : IExternalCommand {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements) {
-            Debug.WriteLine("Testing in here..");
-            StartClient();
+            Debug.WriteLine("Execute() called");
+            StartClient("Message tester..");
             UIApplication uiapp = commandData.Application;
             Document uidoc = uiapp.ActiveUIDocument.Document;
             Application app = uiapp.Application;
@@ -42,8 +42,8 @@ namespace Lab1PlaceGroup {
             }
             return Result.Succeeded;
         }
-
-        public static void StartClient() {
+		
+        public static void StartClient(string sendMsg) {
             byte[] bytes = new byte[1024];
 
             try {
@@ -68,7 +68,8 @@ namespace Lab1PlaceGroup {
                         sender.RemoteEndPoint.ToString());
 
                     // Encode the data string into a byte array.    
-                    byte[] msg = Encoding.ASCII.GetBytes("This is a test<EOF>");
+                    //byte[] msg = Encoding.ASCII.GetBytes("This is a test<EOF>");
+		            byte[] msg = Encoding.ASCII.GetBytes(sendMsg);
 
                     // Send the data through the socket.    
                     int bytesSent = sender.Send(msg);
