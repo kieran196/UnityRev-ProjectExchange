@@ -1,0 +1,6 @@
+C:\Users\maykw002\source\repos\Lab1PlaceGroup\Lab1PlaceGroup\bin\Debug\Lab1PlaceGroup.dll
+C:\Users\maykw002\source\repos\Lab1PlaceGroup\Lab1PlaceGroup\bin\Debug\Lab1PlaceGroup.pdb
+C:\Users\maykw002\source\repos\Lab1PlaceGroup\Lab1PlaceGroup\obj\Debug\Lab1PlaceGroup.csprojResolveAssemblyReference.cache
+C:\Users\maykw002\source\repos\Lab1PlaceGroup\Lab1PlaceGroup\obj\Debug\Lab1PlaceGroup.csproj.CoreCompileInputs.cache
+C:\Users\maykw002\source\repos\Lab1PlaceGroup\Lab1PlaceGroup\obj\Debug\Lab1PlaceGroup.dll
+C:\Users\maykw002\source\repos\Lab1PlaceGroup\Lab1PlaceGroup\obj\Debug\Lab1PlaceGroup.pdb
