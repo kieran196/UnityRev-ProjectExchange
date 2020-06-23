@@ -31,8 +31,13 @@ public class SocketTest : MonoBehaviour {
 
         public bool newDataSet = false;
         public string newData;
+        private Vector3 oldPos;
+
+        public static readonly float MSGDELAY = 1f;
+        private float MsgTimer = 0f;
 
     void Update() {
+        MsgTimer += Time.deltaTime;
         if (revObjTest == null) { // If the object is null find it..
             revObjTest = GameObject.FindGameObjectWithTag("RevitObj");
         }
@@ -56,6 +61,11 @@ public class SocketTest : MonoBehaviour {
         }
         if (updateClientData) {
             updateClientData = false;
+            sendData();
+        }  if (oldPos != revObjTest.transform.position && MsgTimer > MSGDELAY) {
+            MsgTimer = 0f;
+            oldPos = revObjTest.transform.position;
+            revObjPos = oldPos;
             sendData();
         }
     }
@@ -87,11 +97,12 @@ public class SocketTest : MonoBehaviour {
 
     public void sendData() {
         String sendData = revId + "#" + revObjPos;
+        //String sendData = "test";
         Debug.Log("Sending Data:" + sendData);
         byte[] msg = Encoding.ASCII.GetBytes(sendData);
         handler.Send(msg);
-        handler.Shutdown(SocketShutdown.Both);
-        handler.Close();
+        //handler.Shutdown(SocketShutdown.Both);
+        //handler.Close();
     }
 
     public void splitData(String data) {
