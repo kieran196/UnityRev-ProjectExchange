@@ -10,9 +10,10 @@ using Autodesk.Revit.UI.Selection;
 
 namespace RevSocketing {
 
-    public class ExternalEventTest : IExternalEventHandler {
+    public class updatePosEvent : IExternalEventHandler {
 
         public static ElementId eid;
+        public static XYZ startingPos;
         public static XYZ xyztranslation;
         public static Document uidoc = null;
 
@@ -22,7 +23,9 @@ namespace RevSocketing {
                 tx.Start("Creating Assembly Instance");
                 Element e = uidoc.GetElement(eid);
                 LocationPoint Lp = e.Location as LocationPoint;
-                Lp.Point = xyztranslation;
+                // Unity Y coord = X, Z coord = Y. (For the door).
+                Lp.Point = new XYZ(startingPos.X+xyztranslation.Y, startingPos.Y + xyztranslation.Z, startingPos.Z - xyztranslation.Y);
+                //Lp.Point = xyztranslation;
                 //e.Location.Move(xyztranslation);
                 //ElementTransformUtils.MoveElement(uidoc, eid, xyztranslation);
                 tx.Commit();

@@ -121,6 +121,1501 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &31465928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 31465929}
+  - component: {fileID: 31465930}
+  m_Layer: 0
+  m_Name: 3ZDgRRt$L4C8_EHOzR3l9j-Level 1_IfcCovering.dae
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &31465929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31465928}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 638612759}
+  m_Father: {fileID: 480209827}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &31465930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31465928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 866868759, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FileDescription:
+  - Name: ViewDefinition
+    Value: CoordinationView_V2.0
+  - Name: Implementation Level
+    Value: 2;1
+  FileName:
+  - Name: Name
+    Value: Project Number
+  - Name: Time Stamp
+    Value: 23/06/2020 2:11:58 PM
+  - Name: Authorization
+    Value: 
+  - Name: Originating System
+    Value: 21.0.0.383 - Exporter 21.0.0.383 - Alternate UI 21.0.0.383
+  - Name: Preprocessor Version
+    Value: 'The EXPRESS Data Manager Version 5.02.0100.07 : 28 Aug 2013'
+  FileSchema: []
+--- !u!1 &283256038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 283256039}
+  - component: {fileID: 283256040}
+  m_Layer: 0
+  m_Name: 3ZDgRRt$L4C8_EHOzR3l9j-Level 1_IfcWallStandardCase.dae
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &283256039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283256038}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1426521573}
+  - {fileID: 1486718006}
+  - {fileID: 1792377478}
+  - {fileID: 1439022406}
+  m_Father: {fileID: 480209827}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &283256040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283256038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 866868759, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FileDescription:
+  - Name: ViewDefinition
+    Value: CoordinationView_V2.0
+  - Name: Implementation Level
+    Value: 2;1
+  FileName:
+  - Name: Name
+    Value: Project Number
+  - Name: Time Stamp
+    Value: 23/06/2020 2:11:58 PM
+  - Name: Authorization
+    Value: 
+  - Name: Originating System
+    Value: 21.0.0.383 - Exporter 21.0.0.383 - Alternate UI 21.0.0.383
+  - Name: Preprocessor Version
+    Value: 'The EXPRESS Data Manager Version 5.02.0100.07 : 28 Aug 2013'
+  FileSchema: []
+--- !u!1 &442936767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 442936768}
+  - component: {fileID: 442936769}
+  m_Layer: 0
+  m_Name: 3ZDgRRt$L4C8_EHOzR3l9j-Level 1_IfcWindow.dae
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &442936768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442936767}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1384006030}
+  - {fileID: 665500716}
+  - {fileID: 751777570}
+  - {fileID: 647432290}
+  - {fileID: 1959165154}
+  m_Father: {fileID: 480209827}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &442936769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442936767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 866868759, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FileDescription:
+  - Name: ViewDefinition
+    Value: CoordinationView_V2.0
+  - Name: Implementation Level
+    Value: 2;1
+  FileName:
+  - Name: Name
+    Value: Project Number
+  - Name: Time Stamp
+    Value: 23/06/2020 2:11:58 PM
+  - Name: Authorization
+    Value: 
+  - Name: Originating System
+    Value: 21.0.0.383 - Exporter 21.0.0.383 - Alternate UI 21.0.0.383
+  - Name: Preprocessor Version
+    Value: 'The EXPRESS Data Manager Version 5.02.0100.07 : 28 Aug 2013'
+  FileSchema: []
+--- !u!1 &480209826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 480209827}
+  - component: {fileID: 480209831}
+  - component: {fileID: 480209830}
+  - component: {fileID: 480209829}
+  - component: {fileID: 480209828}
+  m_Layer: 0
+  m_Name: Level 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &480209827
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480209826}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1380765952}
+  - {fileID: 31465929}
+  - {fileID: 487484893}
+  - {fileID: 283256039}
+  - {fileID: 442936768}
+  m_Father: {fileID: 1747636028}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &480209828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480209826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ProductRequirements
+  - Name: id
+    Value: 00yhbD9pn5xAuebIU1aTd9
+  - Name: Name
+    Value: Level 1
+  - Name: Category
+    Value: Levels
+--- !u!114 &480209829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480209826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_BuildingStoreyCommon
+  - Name: id
+    Value: 2JF4e6axWHqu3u2onFZlmi
+  - Name: AboveGround
+    Value: false
+--- !u!114 &480209830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480209826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_AirSideSystemInformation
+  - Name: id
+    Value: 1lw11dljDCER$oPCwtgPEq
+  - Name: Name
+    Value: Level 1
+--- !u!114 &480209831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480209826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1050582646, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcBuildingStorey
+  - Name: id
+    Value: 3ZDgRRt$L4C8_EHOzR3l9j
+  - Name: Name
+    Value: Level 1
+  - Name: LongName
+    Value: Level 1
+  - Name: Elevation
+    Value: 0
+  - Name: ObjectType
+    Value: Level:1/4" Head
+  - Name: CompositionType
+    Value: ELEMENT
+  - Name: ObjectPlacement
+    Value: 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
+  Elevation: 0
+--- !u!1 &487484892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 487484893}
+  - component: {fileID: 487484894}
+  m_Layer: 0
+  m_Name: 3ZDgRRt$L4C8_EHOzR3l9j-Level 1_IfcSlab.dae
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &487484893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487484892}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1834122064}
+  m_Father: {fileID: 480209827}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &487484894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487484892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 866868759, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FileDescription:
+  - Name: ViewDefinition
+    Value: CoordinationView_V2.0
+  - Name: Implementation Level
+    Value: 2;1
+  FileName:
+  - Name: Name
+    Value: Project Number
+  - Name: Time Stamp
+    Value: 23/06/2020 2:11:58 PM
+  - Name: Authorization
+    Value: 
+  - Name: Originating System
+    Value: 21.0.0.383 - Exporter 21.0.0.383 - Alternate UI 21.0.0.383
+  - Name: Preprocessor Version
+    Value: 'The EXPRESS Data Manager Version 5.02.0100.07 : 28 Aug 2013'
+  FileSchema: []
+--- !u!1 &525035001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 525035002}
+  - component: {fileID: 525035003}
+  m_Layer: 0
+  m_Name: Project Number
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &525035002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525035001}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1413301912}
+  m_Father: {fileID: 1931425977}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &525035003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525035001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -803604882, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcProject
+  - Name: id
+    Value: 3ZDgRRt$L4C8_EHO_ayGs3
+  - Name: Name
+    Value: Project Number
+  - Name: Phase
+    Value: Project Status
+  - Name: LongName
+    Value: Project Name
+--- !u!1 &638612758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 638612759}
+  - component: {fileID: 638612769}
+  - component: {fileID: 638612768}
+  - component: {fileID: 638612767}
+  - component: {fileID: 638612766}
+  - component: {fileID: 638612765}
+  - component: {fileID: 638612764}
+  - component: {fileID: 638612763}
+  - component: {fileID: 638612762}
+  - component: {fileID: 638612761}
+  - component: {fileID: 638612760}
+  - component: {fileID: 638612770}
+  m_Layer: 0
+  m_Name: Compound Ceiling:2' x 4' ACT System:358320
+  m_TagString: RevitObj
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &638612759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638612758}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 31465929}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &638612760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638612758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -637001453, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcPresentationLayerAssignment
+  - Name: id
+    Value: A-CLNG-____-OTLN
+  - Name: Name
+    Value: A-CLNG-____-OTLN
+--- !u!114 &638612761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638612758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -261703775, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcMaterialLayerSetUsage
+  - Name: id
+    Value: IfcMaterialLayerSetUsage_1131
+  - Name: LayerSetName
+    Value: Compound Ceiling:2' x 4' ACT System
+  - Name: DirectionSense
+    Value: POSITIVE
+  - Name: LayerSetDirection
+    Value: AXIS3
+  - Name: OffsetFromReferenceLine
+    Value: 0
+  MaterialLayers:
+  - Name: Wood - Stained
+    LayerThickness: 0.0413
+  - Name: Acoustic Ceiling Tile 24 x 48
+    LayerThickness: 0.0159
+--- !u!114 &638612762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638612758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1134604553, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcCoveringType
+  - Name: id
+    Value: 2xMPN6ea5AFAl9ph5GhkEV
+  - Name: Tag
+    Value: 44749
+  - Name: Name
+    Value: Compound Ceiling:2' x 4' ACT System
+  - Name: PredefinedType
+    Value: CEILING
+--- !u!114 &638612763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638612758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_QuantityTakeOff
+  - Name: id
+    Value: 1JHq3f19bF9BuAzEyuLqVM
+  - Name: Reference
+    Value: 2' x 4' ACT System
+--- !u!114 &638612764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638612758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ProductRequirements
+  - Name: id
+    Value: 3NUxIFgV5CEQ8_dotxt7dL
+  - Name: Category
+    Value: Ceilings
+--- !u!114 &638612765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638612758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ElementShading
+  - Name: id
+    Value: 1LCfdFbI5APe7AO4XjzJPs
+  - Name: Roughness
+    Value: 0.3048
+--- !u!114 &638612766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638612758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_CoveringCommon
+  - Name: id
+    Value: 2xMPN6ea5AFAl9nLzGhkEV
+  - Name: Reference
+    Value: 2' x 4' ACT System
+  - Name: TotalThickness
+    Value: 0.0572
+--- !u!114 &638612767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638612758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -202151664, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcCovering
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf6vRMGK$
+  - Name: Tag
+    Value: 358320
+  - Name: Name
+    Value: Compound Ceiling:2' x 4' ACT System:358320
+  - Name: ObjectType
+    Value: Compound Ceiling:2' x 4' ACT System
+  - Name: PredefinedType
+    Value: CEILING
+  - Name: ObjectPlacement
+    Value: 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
+--- !u!23 &638612768
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638612758}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1fe9ffcdf777810499d14a7f30ff29ad, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &638612769
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638612758}
+  m_Mesh: {fileID: -898539059228947585, guid: 4d6dd64034df2bc4eb2f2e4c20dfb879, type: 3}
+--- !u!114 &638612770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638612758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
+--- !u!1 &647432289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 647432290}
+  - component: {fileID: 647432299}
+  - component: {fileID: 647432298}
+  - component: {fileID: 647432297}
+  - component: {fileID: 647432296}
+  - component: {fileID: 647432295}
+  - component: {fileID: 647432294}
+  - component: {fileID: 647432293}
+  - component: {fileID: 647432292}
+  - component: {fileID: 647432291}
+  - component: {fileID: 647432300}
+  m_Layer: 0
+  m_Name: Fixed:36" x 48":357652
+  m_TagString: RevitObj
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &647432290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647432289}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 6.52401, y: 0.9144, z: -9.81554}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 442936768}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &647432291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647432289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -637001453, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcPresentationLayerAssignment
+  - Name: id
+    Value: A-GLAZ-____-OTLN
+  - Name: Name
+    Value: A-GLAZ-____-OTLN
+--- !u!114 &647432292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647432289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 40497844, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcMaterialList
+  - Name: id
+    Value: IfcMaterialList_952
+  Materials: []
+--- !u!114 &647432293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647432289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1016640330, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWindowStyle
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf7jRMG3n
+  - Name: Tag
+    Value: 356990
+  - Name: Name
+    Value: Fixed:36" x 48"
+  - Name: Sizeable
+    Value: false
+  - Name: OperationType
+    Value: NOTDEFINED
+  - Name: ConstructionType
+    Value: NOTDEFINED
+  - Name: ParameterTakesPrecedence
+    Value: false
+--- !u!114 &647432294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647432289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_WindowCommon
+  - Name: id
+    Value: 3LzzSzWN55Nu_9zcKpYigb
+  - Name: IsExternal
+    Value: false
+  - Name: Reference
+    Value: 36" x 48"
+  - Name: ThermalTransmittance
+    Value: 3.6886
+--- !u!114 &647432295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647432289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_QuantityTakeOff
+  - Name: id
+    Value: 30MKTLwyX6P8BUUFcsmIIU
+  - Name: Reference
+    Value: 36" x 48"
+--- !u!114 &647432296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647432289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ProductRequirements
+  - Name: id
+    Value: 127$$kdPTFwQgG8DKDnyMz
+  - Name: Category
+    Value: Windows
+--- !u!114 &647432297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647432289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 473690124, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWindow
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf6vRMGUR
+  - Name: Tag
+    Value: 357652
+  - Name: Name
+    Value: Fixed:36" x 48":357652
+  - Name: ObjectType
+    Value: Fixed:36" x 48"
+  - Name: OverallWidth
+    Value: 4
+  - Name: OverallHeight
+    Value: 4
+  - Name: ObjectPlacement
+    Value: 1 0 0 0 0 1 0 0 0 0 1 0 -6.52401 9.81554 0.9144 1
+--- !u!23 &647432298
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647432289}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 6984bc117913dbd47854aa1d3d04588a, type: 2}
+  - {fileID: 2100000, guid: ca56901bad5f6e14fb1f04e9c61bbccf, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &647432299
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647432289}
+  m_Mesh: {fileID: -8359364971691872848, guid: 52a1a8a49ba0ac243af567d6b75540b5, type: 3}
+--- !u!114 &647432300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647432289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
+--- !u!1 &665500715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 665500716}
+  - component: {fileID: 665500725}
+  - component: {fileID: 665500724}
+  - component: {fileID: 665500723}
+  - component: {fileID: 665500722}
+  - component: {fileID: 665500721}
+  - component: {fileID: 665500720}
+  - component: {fileID: 665500719}
+  - component: {fileID: 665500718}
+  - component: {fileID: 665500717}
+  - component: {fileID: 665500726}
+  m_Layer: 0
+  m_Name: Fixed:36" x 48":357800
+  m_TagString: RevitObj
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &665500716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665500715}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 16.924, y: 0.9144, z: -9.81554}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 442936768}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &665500717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665500715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -637001453, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcPresentationLayerAssignment
+  - Name: id
+    Value: A-GLAZ-____-OTLN
+  - Name: Name
+    Value: A-GLAZ-____-OTLN
+--- !u!114 &665500718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665500715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 40497844, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcMaterialList
+  - Name: id
+    Value: IfcMaterialList_1018
+  Materials: []
+--- !u!114 &665500719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665500715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1016640330, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWindowStyle
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf7jRMG3n
+  - Name: Tag
+    Value: 356990
+  - Name: Name
+    Value: Fixed:36" x 48"
+  - Name: Sizeable
+    Value: false
+  - Name: OperationType
+    Value: NOTDEFINED
+  - Name: ConstructionType
+    Value: NOTDEFINED
+  - Name: ParameterTakesPrecedence
+    Value: false
+--- !u!114 &665500720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665500715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_WindowCommon
+  - Name: id
+    Value: 3LzzSzWN55Nu_9zcKpYigb
+  - Name: IsExternal
+    Value: false
+  - Name: Reference
+    Value: 36" x 48"
+  - Name: ThermalTransmittance
+    Value: 3.6886
+--- !u!114 &665500721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665500715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_QuantityTakeOff
+  - Name: id
+    Value: 30MKTLwyX6P8BUUFcsmIIU
+  - Name: Reference
+    Value: 36" x 48"
+--- !u!114 &665500722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665500715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ProductRequirements
+  - Name: id
+    Value: 127$$kdPTFwQgG8DKDnyMz
+  - Name: Category
+    Value: Windows
+--- !u!114 &665500723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665500715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 473690124, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWindow
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf6vRMGSd
+  - Name: Tag
+    Value: 357800
+  - Name: Name
+    Value: Fixed:36" x 48":357800
+  - Name: ObjectType
+    Value: Fixed:36" x 48"
+  - Name: OverallWidth
+    Value: 4
+  - Name: OverallHeight
+    Value: 4
+  - Name: ObjectPlacement
+    Value: 1 0 0 0 0 1 0 0 0 0 1 0 -16.924 9.81554 0.9144 1
+--- !u!23 &665500724
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665500715}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 6984bc117913dbd47854aa1d3d04588a, type: 2}
+  - {fileID: 2100000, guid: ca56901bad5f6e14fb1f04e9c61bbccf, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &665500725
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665500715}
+  m_Mesh: {fileID: -8359364971691872848, guid: 52a1a8a49ba0ac243af567d6b75540b5, type: 3}
+--- !u!114 &665500726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665500715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
+--- !u!1 &751777569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 751777570}
+  - component: {fileID: 751777579}
+  - component: {fileID: 751777578}
+  - component: {fileID: 751777577}
+  - component: {fileID: 751777576}
+  - component: {fileID: 751777575}
+  - component: {fileID: 751777574}
+  - component: {fileID: 751777573}
+  - component: {fileID: 751777572}
+  - component: {fileID: 751777571}
+  - component: {fileID: 751777580}
+  m_Layer: 0
+  m_Name: Fixed:36" x 48":357873
+  m_TagString: RevitObj
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &751777570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751777569}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -3.57599, y: 0.9144, z: -9.81554}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 442936768}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &751777571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751777569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -637001453, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcPresentationLayerAssignment
+  - Name: id
+    Value: A-GLAZ-____-OTLN
+  - Name: Name
+    Value: A-GLAZ-____-OTLN
+--- !u!114 &751777572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751777569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 40497844, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcMaterialList
+  - Name: id
+    Value: IfcMaterialList_1051
+  Materials: []
+--- !u!114 &751777573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751777569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1016640330, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWindowStyle
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf7jRMG3n
+  - Name: Tag
+    Value: 356990
+  - Name: Name
+    Value: Fixed:36" x 48"
+  - Name: Sizeable
+    Value: false
+  - Name: OperationType
+    Value: NOTDEFINED
+  - Name: ConstructionType
+    Value: NOTDEFINED
+  - Name: ParameterTakesPrecedence
+    Value: false
+--- !u!114 &751777574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751777569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_WindowCommon
+  - Name: id
+    Value: 3LzzSzWN55Nu_9zcKpYigb
+  - Name: IsExternal
+    Value: false
+  - Name: Reference
+    Value: 36" x 48"
+  - Name: ThermalTransmittance
+    Value: 3.6886
+--- !u!114 &751777575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751777569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_QuantityTakeOff
+  - Name: id
+    Value: 30MKTLwyX6P8BUUFcsmIIU
+  - Name: Reference
+    Value: 36" x 48"
+--- !u!114 &751777576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751777569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ProductRequirements
+  - Name: id
+    Value: 127$$kdPTFwQgG8DKDnyMz
+  - Name: Category
+    Value: Windows
+--- !u!114 &751777577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751777569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 473690124, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWindow
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf6vRMGT_
+  - Name: Tag
+    Value: 357873
+  - Name: Name
+    Value: Fixed:36" x 48":357873
+  - Name: ObjectType
+    Value: Fixed:36" x 48"
+  - Name: OverallWidth
+    Value: 4
+  - Name: OverallHeight
+    Value: 4
+  - Name: ObjectPlacement
+    Value: 1 0 0 0 0 1 0 0 0 0 1 0 3.57599 9.81554 0.9144 1
+--- !u!23 &751777578
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751777569}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 6984bc117913dbd47854aa1d3d04588a, type: 2}
+  - {fileID: 2100000, guid: ca56901bad5f6e14fb1f04e9c61bbccf, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &751777579
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751777569}
+  m_Mesh: {fileID: -8359364971691872848, guid: 52a1a8a49ba0ac243af567d6b75540b5, type: 3}
+--- !u!114 &751777580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751777569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &788422565
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,13 +1701,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788422565}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.19925329, y: -0.79925495, z: 0.37269872, w: -0.4273001}
+  m_LocalPosition: {x: 2.05, y: 7.9, z: -3.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 50, y: -236.26, z: 0}
 --- !u!1 &1114076287
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +1759,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1981508178
+--- !u!1 &1272895612
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -272,51 +1767,297 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1981508183}
-  - component: {fileID: 1981508182}
-  - component: {fileID: 1981508181}
-  - component: {fileID: 1981508180}
-  - component: {fileID: 1981508179}
+  - component: {fileID: 1272895613}
+  - component: {fileID: 1272895623}
+  - component: {fileID: 1272895622}
+  - component: {fileID: 1272895621}
+  - component: {fileID: 1272895620}
+  - component: {fileID: 1272895619}
+  - component: {fileID: 1272895618}
+  - component: {fileID: 1272895617}
+  - component: {fileID: 1272895616}
+  - component: {fileID: 1272895615}
+  - component: {fileID: 1272895614}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Single-Flush:36" x 84":357285
   m_TagString: RevitObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1981508179
+--- !u!4 &1272895613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272895612}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: -9.97759, y: 0, z: -3.45994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1380765952}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1272895614
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1981508178}
+  m_GameObject: {fileID: 1272895612}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UNIQUE_ID: ID:208f0560-9995-41cf-8f9f-a46e5b5c728f-000573a5
---- !u!65 &1981508180
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &1272895615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272895612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -637001453, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcPresentationLayerAssignment
+  - Name: id
+    Value: A-DOOR-____-OTLN
+  - Name: Name
+    Value: A-DOOR-____-OTLN
+--- !u!114 &1272895616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272895612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 40497844, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcMaterialList
+  - Name: id
+    Value: IfcMaterialList_906
+  Materials: []
+--- !u!114 &1272895617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272895612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_QuantityTakeOff
+  - Name: id
+    Value: 0BZxa83EjEihYvEZ4E6jYd
+  - Name: Reference
+    Value: 36" x 84"
+--- !u!114 &1272895618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272895612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ProductRequirements
+  - Name: id
+    Value: 04sp8k2BPDOOUH$rg4VmB7
+  - Name: Category
+    Value: Doors
+--- !u!114 &1272895619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272895612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_DoorCommon
+  - Name: id
+    Value: 0WZmLWcPL1pu_VhvvRMG4g
+  - Name: IsExternal
+    Value: false
+  - Name: Reference
+    Value: 36" x 84"
+  - Name: ThermalTransmittance
+    Value: 3.7021
+--- !u!114 &1272895620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272895612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1878097697, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcDoorStyle
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf7jRMGQ9
+  - Name: Tag
+    Value: 59772
+  - Name: Name
+    Value: Single-Flush:36" x 84"
+  - Name: Sizeable
+    Value: false
+  - Name: OperationType
+    Value: SINGLE_SWING_RIGHT
+  - Name: ConstructionType
+    Value: NOTDEFINED
+  - Name: ParameterTakesPrecedence
+    Value: false
+--- !u!114 &1272895621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272895612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 693160074, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcDoor
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf6vRMG4g
+  - Name: Tag
+    Value: 357285
+  - Name: Name
+    Value: Single-Flush:36" x 84":357285
+  - Name: ObjectType
+    Value: Single-Flush:36" x 84"
+  - Name: OverallWidth
+    Value: 0.9144
+  - Name: OverallHeight
+    Value: 2.1336
+  - Name: ObjectPlacement
+    Value: 0 1 0 0 -1 0 0 0 0 0 1 0 9.97759 3.45994 0 1
+--- !u!23 &1272895622
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272895612}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f9646b67430df944ea1fd2e30ebf4bde, type: 2}
+  - {fileID: 2100000, guid: bbff7616d0d88d04fa27f8f969480162, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1272895623
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272895612}
+  m_Mesh: {fileID: -7646710760704273702, guid: 11c34f3cbd35e8c4dae93a0811abf2f8, type: 3}
+--- !u!1 &1296714423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296714427}
+  - component: {fileID: 1296714426}
+  - component: {fileID: 1296714425}
+  - component: {fileID: 1296714424}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1296714424
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1981508178}
+  m_GameObject: {fileID: 1296714423}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1981508181
+--- !u!23 &1296714425
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1981508178}
+  m_GameObject: {fileID: 1296714423}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -349,25 +2090,2332 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &1981508182
+--- !u!33 &1296714426
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1981508178}
+  m_GameObject: {fileID: 1296714423}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1981508183
+--- !u!4 &1296714427
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1981508178}
+  m_GameObject: {fileID: 1296714423}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1380765951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1380765952}
+  - component: {fileID: 1380765953}
+  m_Layer: 0
+  m_Name: 3ZDgRRt$L4C8_EHOzR3l9j-Level 1_IfcDoor.dae
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1380765952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380765951}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1272895613}
+  m_Father: {fileID: 480209827}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1380765953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380765951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 866868759, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FileDescription:
+  - Name: ViewDefinition
+    Value: CoordinationView_V2.0
+  - Name: Implementation Level
+    Value: 2;1
+  FileName:
+  - Name: Name
+    Value: Project Number
+  - Name: Time Stamp
+    Value: 23/06/2020 2:11:58 PM
+  - Name: Authorization
+    Value: 
+  - Name: Originating System
+    Value: 21.0.0.383 - Exporter 21.0.0.383 - Alternate UI 21.0.0.383
+  - Name: Preprocessor Version
+    Value: 'The EXPRESS Data Manager Version 5.02.0100.07 : 28 Aug 2013'
+  FileSchema: []
+--- !u!1 &1384006029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1384006030}
+  - component: {fileID: 1384006039}
+  - component: {fileID: 1384006038}
+  - component: {fileID: 1384006037}
+  - component: {fileID: 1384006036}
+  - component: {fileID: 1384006035}
+  - component: {fileID: 1384006034}
+  - component: {fileID: 1384006033}
+  - component: {fileID: 1384006032}
+  - component: {fileID: 1384006031}
+  - component: {fileID: 1384006040}
+  m_Layer: 0
+  m_Name: Fixed:36" x 48":356844
+  m_TagString: RevitObj
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1384006030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384006029}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 11.724, y: 1, z: -9.81554}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 442936768}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1384006031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384006029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -637001453, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcPresentationLayerAssignment
+  - Name: id
+    Value: A-GLAZ-____-OTLN
+  - Name: Name
+    Value: A-GLAZ-____-OTLN
+--- !u!114 &1384006032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384006029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 40497844, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcMaterialList
+  - Name: id
+    Value: IfcMaterialList_747
+  Materials: []
+--- !u!114 &1384006033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384006029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1016640330, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWindowStyle
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf7jRMG3n
+  - Name: Tag
+    Value: 356990
+  - Name: Name
+    Value: Fixed:36" x 48"
+  - Name: Sizeable
+    Value: false
+  - Name: OperationType
+    Value: NOTDEFINED
+  - Name: ConstructionType
+    Value: NOTDEFINED
+  - Name: ParameterTakesPrecedence
+    Value: false
+--- !u!114 &1384006034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384006029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_WindowCommon
+  - Name: id
+    Value: 3LzzSzWN55Nu_9zcKpYigb
+  - Name: IsExternal
+    Value: false
+  - Name: Reference
+    Value: 36" x 48"
+  - Name: ThermalTransmittance
+    Value: 3.6886
+--- !u!114 &1384006035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384006029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_QuantityTakeOff
+  - Name: id
+    Value: 30MKTLwyX6P8BUUFcsmIIU
+  - Name: Reference
+    Value: 36" x 48"
+--- !u!114 &1384006036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384006029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ProductRequirements
+  - Name: id
+    Value: 127$$kdPTFwQgG8DKDnyMz
+  - Name: Category
+    Value: Windows
+--- !u!114 &1384006037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384006029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 473690124, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWindow
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf6vRMGDZ
+  - Name: Tag
+    Value: 356844
+  - Name: Name
+    Value: Fixed:36" x 48":356844
+  - Name: ObjectType
+    Value: Fixed:36" x 48"
+  - Name: OverallWidth
+    Value: 4
+  - Name: OverallHeight
+    Value: 4
+  - Name: ObjectPlacement
+    Value: 1 0 0 0 0 1 0 0 0 0 1 0 -11.724 9.81554 1 1
+--- !u!23 &1384006038
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384006029}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 6984bc117913dbd47854aa1d3d04588a, type: 2}
+  - {fileID: 2100000, guid: ca56901bad5f6e14fb1f04e9c61bbccf, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1384006039
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384006029}
+  m_Mesh: {fileID: -8359364971691872848, guid: 52a1a8a49ba0ac243af567d6b75540b5, type: 3}
+--- !u!114 &1384006040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384006029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
+--- !u!1 &1413301911
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1413301912}
+  - component: {fileID: 1413301914}
+  - component: {fileID: 1413301913}
+  m_Layer: 0
+  m_Name: Default
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1413301912
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413301911}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1747636028}
+  m_Father: {fileID: 525035002}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1413301913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413301911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ProductRequirements
+  - Name: id
+    Value: 2A3PCZdVP3fgP6xNaO6G0$
+  - Name: Category
+    Value: Project Information
+--- !u!114 &1413301914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413301911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1103783642, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcSite
+  - Name: id
+    Value: 3ZDgRRt$L4C8_EHO_ayGs1
+  - Name: Name
+    Value: Default
+  - Name: RefLatitude
+    Value: 42.358661651389
+  - Name: RefElevation
+    Value: 0
+  - Name: RefLongitude
+    Value: -71.056739806944
+  - Name: CompositionType
+    Value: ELEMENT
+  - Name: ObjectPlacement
+    Value: 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
+--- !u!1 &1426521572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1426521573}
+  - component: {fileID: 1426521584}
+  - component: {fileID: 1426521583}
+  - component: {fileID: 1426521582}
+  - component: {fileID: 1426521581}
+  - component: {fileID: 1426521580}
+  - component: {fileID: 1426521579}
+  - component: {fileID: 1426521578}
+  - component: {fileID: 1426521577}
+  - component: {fileID: 1426521576}
+  - component: {fileID: 1426521575}
+  - component: {fileID: 1426521574}
+  - component: {fileID: 1426521585}
+  m_Layer: 0
+  m_Name: Basic Wall:Generic - 8":356506
+  m_TagString: RevitObj
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1426521573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426521572}
+  m_LocalRotation: {x: -0.00000003090863, y: 0.7071068, z: 0.7071068, w: 0.00000003090863}
+  m_LocalPosition: {x: -9.77439, y: 0, z: 10.0829}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 283256039}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1426521574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426521572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -637001453, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcPresentationLayerAssignment
+  - Name: id
+    Value: A-WALL-____-OTLN
+  - Name: Name
+    Value: A-WALL-____-OTLN
+--- !u!114 &1426521575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426521572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -261703775, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcMaterialLayerSetUsage
+  - Name: id
+    Value: IfcMaterialLayerSetUsage_499
+  - Name: LayerSetName
+    Value: Basic Wall:Generic - 8"
+  - Name: DirectionSense
+    Value: NEGATIVE
+  - Name: LayerSetDirection
+    Value: AXIS2
+  - Name: OffsetFromReferenceLine
+    Value: 0.1016
+  MaterialLayers:
+  - Name: Default Wall
+    LayerThickness: 0.2032
+--- !u!114 &1426521576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426521572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_WallCommon
+  - Name: id
+    Value: 0WZmLWcPL1pu_VhvDRMG8L
+  - Name: LoadBearing
+    Value: false
+  - Name: Reference
+    Value: Generic - 8"
+  - Name: IsExternal
+    Value: true
+  - Name: ExtendToStructure
+    Value: false
+--- !u!114 &1426521577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426521572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ReinforcementBarPitchOfWall
+  - Name: id
+    Value: 0scoxJ4nv9LhKjfPrOXLHs
+  - Name: Reference
+    Value: Generic - 8"
+--- !u!114 &1426521578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426521572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_QuantityTakeOff
+  - Name: id
+    Value: 08jutbKLn4xBL29DAh6DN2
+  - Name: Reference
+    Value: Generic - 8"
+--- !u!114 &1426521579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426521572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ProductRequirements
+  - Name: id
+    Value: 26rO6ZPaT95v9cVN2xuVBe
+  - Name: Category
+    Value: Walls
+--- !u!114 &1426521580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426521572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ElementShading
+  - Name: id
+    Value: 0HlZnHY15EQhTVvpL1R6mI
+  - Name: Roughness
+    Value: 0.9144
+--- !u!114 &1426521581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426521572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -667940390, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWallType
+  - Name: id
+    Value: 2JF5JWaxWHqu3u0C1FZlpB
+  - Name: Tag
+    Value: 249
+  - Name: Name
+    Value: Basic Wall:Generic - 8"
+  - Name: PredefinedType
+    Value: STANDARD
+--- !u!114 &1426521582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426521572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1234008911, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWallStandardCase
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf6vRMG8L
+  - Name: Tag
+    Value: 356506
+  - Name: Name
+    Value: Basic Wall:Generic - 8":356506
+  - Name: ObjectType
+    Value: Basic Wall:Generic - 8"
+  - Name: ObjectPlacement
+    Value: -1 0 0 0 0 -1 0 0 0 0 1 0 9.77439 -10.0829 0 1
+--- !u!23 &1426521583
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426521572}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 915e8af282ad52540b520a79a67d4a6d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1426521584
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426521572}
+  m_Mesh: {fileID: 3496189788643564792, guid: 0d7ef44c0afcedf478d24b000f1c4a6c, type: 3}
+--- !u!114 &1426521585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426521572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
+--- !u!1 &1439022405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1439022406}
+  - component: {fileID: 1439022417}
+  - component: {fileID: 1439022416}
+  - component: {fileID: 1439022415}
+  - component: {fileID: 1439022414}
+  - component: {fileID: 1439022413}
+  - component: {fileID: 1439022412}
+  - component: {fileID: 1439022411}
+  - component: {fileID: 1439022410}
+  - component: {fileID: 1439022409}
+  - component: {fileID: 1439022408}
+  - component: {fileID: 1439022407}
+  - component: {fileID: 1439022418}
+  m_Layer: 0
+  m_Name: Basic Wall:Generic - 8":356305
+  m_TagString: RevitObj
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1439022406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439022405}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 20.2256, y: 0, z: -9.91714}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 283256039}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1439022407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439022405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -637001453, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcPresentationLayerAssignment
+  - Name: id
+    Value: A-WALL-____-OTLN
+  - Name: Name
+    Value: A-WALL-____-OTLN
+--- !u!114 &1439022408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439022405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -261703775, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcMaterialLayerSetUsage
+  - Name: id
+    Value: IfcMaterialLayerSetUsage_359
+  - Name: LayerSetName
+    Value: Basic Wall:Generic - 8"
+  - Name: DirectionSense
+    Value: NEGATIVE
+  - Name: LayerSetDirection
+    Value: AXIS2
+  - Name: OffsetFromReferenceLine
+    Value: 0.1016
+  MaterialLayers:
+  - Name: Default Wall
+    LayerThickness: 0.2032
+--- !u!114 &1439022409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439022405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_WallCommon
+  - Name: id
+    Value: 0WZmLWcPL1pu_VhvDRMHrU
+  - Name: LoadBearing
+    Value: false
+  - Name: Reference
+    Value: Generic - 8"
+  - Name: IsExternal
+    Value: true
+  - Name: ExtendToStructure
+    Value: false
+--- !u!114 &1439022410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439022405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ReinforcementBarPitchOfWall
+  - Name: id
+    Value: 1PRV275j1C0f_bd_NMNuRs
+  - Name: Reference
+    Value: Generic - 8"
+--- !u!114 &1439022411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439022405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_QuantityTakeOff
+  - Name: id
+    Value: 0PGkvGItr3UgzUAcZmSxRu
+  - Name: Reference
+    Value: Generic - 8"
+--- !u!114 &1439022412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439022405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ProductRequirements
+  - Name: id
+    Value: 1HjSrIIID2cRA7c$1QjAB_
+  - Name: Category
+    Value: Walls
+--- !u!114 &1439022413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439022405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ElementShading
+  - Name: id
+    Value: 0rTY8XxdX40AuNITA50bZZ
+  - Name: Roughness
+    Value: 0.9144
+--- !u!114 &1439022414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439022405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -667940390, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWallType
+  - Name: id
+    Value: 2JF5JWaxWHqu3u0C1FZlpB
+  - Name: Tag
+    Value: 249
+  - Name: Name
+    Value: Basic Wall:Generic - 8"
+  - Name: PredefinedType
+    Value: STANDARD
+--- !u!114 &1439022415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439022405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1234008911, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWallStandardCase
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf6vRMHrU
+  - Name: Tag
+    Value: 356305
+  - Name: Name
+    Value: Basic Wall:Generic - 8":356305
+  - Name: ObjectType
+    Value: Basic Wall:Generic - 8"
+  - Name: ObjectPlacement
+    Value: 1 0 0 0 0 1 0 0 0 0 1 0 -20.2256 9.91714 0 1
+--- !u!23 &1439022416
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439022405}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 915e8af282ad52540b520a79a67d4a6d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1439022417
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439022405}
+  m_Mesh: {fileID: 8527169924340197340, guid: 0d7ef44c0afcedf478d24b000f1c4a6c, type: 3}
+--- !u!114 &1439022418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439022405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
+--- !u!1 &1486718005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1486718006}
+  - component: {fileID: 1486718017}
+  - component: {fileID: 1486718016}
+  - component: {fileID: 1486718015}
+  - component: {fileID: 1486718014}
+  - component: {fileID: 1486718013}
+  - component: {fileID: 1486718012}
+  - component: {fileID: 1486718011}
+  - component: {fileID: 1486718010}
+  - component: {fileID: 1486718009}
+  - component: {fileID: 1486718008}
+  - component: {fileID: 1486718007}
+  - component: {fileID: 1486718018}
+  m_Layer: 0
+  m_Name: Basic Wall:Generic - 8":356553
+  m_TagString: RevitObj
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1486718006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486718005}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 20.124, y: 0, z: 9.98126}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 283256039}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1486718007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486718005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -637001453, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcPresentationLayerAssignment
+  - Name: id
+    Value: A-WALL-____-OTLN
+  - Name: Name
+    Value: A-WALL-____-OTLN
+--- !u!114 &1486718008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486718005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -261703775, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcMaterialLayerSetUsage
+  - Name: id
+    Value: IfcMaterialLayerSetUsage_556
+  - Name: LayerSetName
+    Value: Basic Wall:Generic - 8"
+  - Name: DirectionSense
+    Value: NEGATIVE
+  - Name: LayerSetDirection
+    Value: AXIS2
+  - Name: OffsetFromReferenceLine
+    Value: 0.1016
+  MaterialLayers:
+  - Name: Default Wall
+    LayerThickness: 0.2032
+--- !u!114 &1486718009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486718005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_WallCommon
+  - Name: id
+    Value: 0WZmLWcPL1pu_VhvDRMG96
+  - Name: LoadBearing
+    Value: false
+  - Name: Reference
+    Value: Generic - 8"
+  - Name: IsExternal
+    Value: true
+  - Name: ExtendToStructure
+    Value: false
+--- !u!114 &1486718010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486718005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ReinforcementBarPitchOfWall
+  - Name: id
+    Value: 3$eb3iTDPAlus$6KVbbovA
+  - Name: Reference
+    Value: Generic - 8"
+--- !u!114 &1486718011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486718005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_QuantityTakeOff
+  - Name: id
+    Value: 26qm6jI6n1GPkFlAKZiiwI
+  - Name: Reference
+    Value: Generic - 8"
+--- !u!114 &1486718012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486718005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ProductRequirements
+  - Name: id
+    Value: 3ejIViOPb52A$UTA8aSoqo
+  - Name: Category
+    Value: Walls
+--- !u!114 &1486718013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486718005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ElementShading
+  - Name: id
+    Value: 0RJ9J2$ej8VgYpMlpnBXn8
+  - Name: Roughness
+    Value: 0.9144
+--- !u!114 &1486718014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486718005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -667940390, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWallType
+  - Name: id
+    Value: 2JF5JWaxWHqu3u0C1FZlpB
+  - Name: Tag
+    Value: 249
+  - Name: Name
+    Value: Basic Wall:Generic - 8"
+  - Name: PredefinedType
+    Value: STANDARD
+--- !u!114 &1486718015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486718005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1234008911, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWallStandardCase
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf6vRMG96
+  - Name: Tag
+    Value: 356553
+  - Name: Name
+    Value: Basic Wall:Generic - 8":356553
+  - Name: ObjectType
+    Value: Basic Wall:Generic - 8"
+  - Name: ObjectPlacement
+    Value: 0 1 0 0 -1 0 0 0 0 0 1 0 -20.124 -9.98126 0 1
+--- !u!23 &1486718016
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486718005}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 915e8af282ad52540b520a79a67d4a6d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1486718017
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486718005}
+  m_Mesh: {fileID: 5159864343741864931, guid: 0d7ef44c0afcedf478d24b000f1c4a6c, type: 3}
+--- !u!114 &1486718018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486718005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
+--- !u!1 &1747636027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1747636028}
+  - component: {fileID: 1747636031}
+  - component: {fileID: 1747636030}
+  - component: {fileID: 1747636029}
+  m_Layer: 0
+  m_Name: 
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1747636028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747636027}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 480209827}
+  m_Father: {fileID: 1413301912}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1747636029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747636027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ProductRequirements
+  - Name: id
+    Value: 0Q02PHCIj0gBv6f2BFIONL
+  - Name: Category
+    Value: Project Information
+--- !u!114 &1747636030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747636027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_BuildingCommon
+  - Name: id
+    Value: 1yhDISh1T5aQqAm2AxGIhP
+  - Name: NumberOfStoreys
+    Value: 1
+  - Name: IsLandmarked
+    Value: false
+--- !u!114 &1747636031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747636027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -429822503, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcBuilding
+  - Name: id
+    Value: 3ZDgRRt$L4C8_EHO_ayGs2
+  - Name: Name
+    Value: 
+  - Name: LongName
+    Value: 
+  - Name: CompositionType
+    Value: ELEMENT
+  - Name: ObjectPlacement
+    Value: 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
+--- !u!1 &1792377477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1792377478}
+  - component: {fileID: 1792377489}
+  - component: {fileID: 1792377488}
+  - component: {fileID: 1792377487}
+  - component: {fileID: 1792377486}
+  - component: {fileID: 1792377485}
+  - component: {fileID: 1792377484}
+  - component: {fileID: 1792377483}
+  - component: {fileID: 1792377482}
+  - component: {fileID: 1792377481}
+  - component: {fileID: 1792377480}
+  - component: {fileID: 1792377479}
+  - component: {fileID: 1792377490}
+  m_Layer: 0
+  m_Name: Basic Wall:Generic - 8":356411
+  m_TagString: RevitObj
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1792377478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792377477}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: -9.87599, y: 0, z: -9.81554}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 283256039}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1792377479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792377477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -637001453, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcPresentationLayerAssignment
+  - Name: id
+    Value: A-WALL-____-OTLN
+  - Name: Name
+    Value: A-WALL-____-OTLN
+--- !u!114 &1792377480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792377477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -261703775, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcMaterialLayerSetUsage
+  - Name: id
+    Value: IfcMaterialLayerSetUsage_442
+  - Name: LayerSetName
+    Value: Basic Wall:Generic - 8"
+  - Name: DirectionSense
+    Value: NEGATIVE
+  - Name: LayerSetDirection
+    Value: AXIS2
+  - Name: OffsetFromReferenceLine
+    Value: 0.1016
+  MaterialLayers:
+  - Name: Default Wall
+    LayerThickness: 0.2032
+--- !u!114 &1792377481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792377477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_WallCommon
+  - Name: id
+    Value: 0WZmLWcPL1pu_VhvDRMGAq
+  - Name: LoadBearing
+    Value: false
+  - Name: Reference
+    Value: Generic - 8"
+  - Name: IsExternal
+    Value: true
+  - Name: ExtendToStructure
+    Value: false
+--- !u!114 &1792377482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792377477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ReinforcementBarPitchOfWall
+  - Name: id
+    Value: 3MvwYF8mnAj9uKxGU4oXdj
+  - Name: Reference
+    Value: Generic - 8"
+--- !u!114 &1792377483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792377477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_QuantityTakeOff
+  - Name: id
+    Value: 2lajLkcULA5RAzPZVBv6BN
+  - Name: Reference
+    Value: Generic - 8"
+--- !u!114 &1792377484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792377477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ProductRequirements
+  - Name: id
+    Value: 3lOa_pP$TFCBZMHscf3Xs5
+  - Name: Category
+    Value: Walls
+--- !u!114 &1792377485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792377477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ElementShading
+  - Name: id
+    Value: 3nDMBmM6L69xQRod1ek5iy
+  - Name: Roughness
+    Value: 0.9144
+--- !u!114 &1792377486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792377477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -667940390, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWallType
+  - Name: id
+    Value: 2JF5JWaxWHqu3u0C1FZlpB
+  - Name: Tag
+    Value: 249
+  - Name: Name
+    Value: Basic Wall:Generic - 8"
+  - Name: PredefinedType
+    Value: STANDARD
+--- !u!114 &1792377487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792377477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1234008911, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWallStandardCase
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf6vRMGAq
+  - Name: Tag
+    Value: 356411
+  - Name: Name
+    Value: Basic Wall:Generic - 8":356411
+  - Name: ObjectType
+    Value: Basic Wall:Generic - 8"
+  - Name: ObjectPlacement
+    Value: 0 -1 0 0 1 0 0 0 0 0 1 0 9.87599 9.81554 0 1
+--- !u!23 &1792377488
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792377477}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 915e8af282ad52540b520a79a67d4a6d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1792377489
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792377477}
+  m_Mesh: {fileID: -5922431063154263226, guid: 0d7ef44c0afcedf478d24b000f1c4a6c, type: 3}
+--- !u!114 &1792377490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792377477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
+--- !u!1 &1834122063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1834122064}
+  - component: {fileID: 1834122075}
+  - component: {fileID: 1834122074}
+  - component: {fileID: 1834122073}
+  - component: {fileID: 1834122072}
+  - component: {fileID: 1834122071}
+  - component: {fileID: 1834122070}
+  - component: {fileID: 1834122069}
+  - component: {fileID: 1834122068}
+  - component: {fileID: 1834122067}
+  - component: {fileID: 1834122066}
+  - component: {fileID: 1834122065}
+  - component: {fileID: 1834122076}
+  m_Layer: 0
+  m_Name: Floor:Wood Joist 10" - Wood Finish:355774
+  m_TagString: RevitObj
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1834122064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834122063}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 487484893}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1834122065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834122063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -637001453, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcPresentationLayerAssignment
+  - Name: id
+    Value: A-FLOR-____-OTLN
+  - Name: Name
+    Value: A-FLOR-____-OTLN
+--- !u!114 &1834122066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834122063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -261703775, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcMaterialLayerSetUsage
+  - Name: id
+    Value: IfcMaterialLayerSetUsage_251
+  - Name: LayerSetName
+    Value: Floor:Wood Joist 10" - Wood Finish
+  - Name: DirectionSense
+    Value: POSITIVE
+  - Name: LayerSetDirection
+    Value: AXIS3
+  - Name: OffsetFromReferenceLine
+    Value: 0
+  MaterialLayers:
+  - Name: Oak Flooring
+    LayerThickness: 0.01905
+  - Name: Plywood, Sheathing
+    LayerThickness: 0.01905
+  - Name: Structure, Wood Joist/Rafter Layer
+    LayerThickness: 0.23495
+--- !u!114 &1834122067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834122063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_SlabCommon
+  - Name: id
+    Value: 0WZmLWcPL1pu_VhvLRMHyn
+  - Name: Reference
+    Value: Wood Joist 10" - Wood Finish
+  - Name: ThermalTransmittance
+    Value: 0.103268
+  - Name: IsExternal
+    Value: false
+  - Name: LoadBearing
+    Value: false
+  - Name: PitchAngle
+    Value: 0
+--- !u!114 &1834122068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834122063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ReinforcementBarPitchOfSlab
+  - Name: id
+    Value: 0ou3XzytzEkADEWImLxuVb
+  - Name: Reference
+    Value: Wood Joist 10" - Wood Finish
+--- !u!114 &1834122069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834122063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_QuantityTakeOff
+  - Name: id
+    Value: 3vdDc$U1TCGPK1sxN2jFMt
+  - Name: Reference
+    Value: Wood Joist 10" - Wood Finish
+--- !u!114 &1834122070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834122063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ProductRequirements
+  - Name: id
+    Value: 0$R1eJqIj0iwu2ajPg3G0m
+  - Name: Category
+    Value: Floors
+--- !u!114 &1834122071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834122063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ElementShading
+  - Name: id
+    Value: 0176rGEJ9DT9s5LQ_w7TVk
+  - Name: Roughness
+    Value: 0.9144
+--- !u!114 &1834122072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834122063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2058804748, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcSlabType
+  - Name: id
+    Value: 0mMYEMvgSHr9BR0026FtcN
+  - Name: Tag
+    Value: 24122
+  - Name: Name
+    Value: Floor:Wood Joist 10" - Wood Finish
+  - Name: PredefinedType
+    Value: FLOOR
+--- !u!114 &1834122073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834122063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1417632626, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcSlab
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf6vRMHyn
+  - Name: Tag
+    Value: 355774
+  - Name: Name
+    Value: Floor:Wood Joist 10" - Wood Finish:355774
+  - Name: ObjectType
+    Value: Floor:Wood Joist 10" - Wood Finish
+  - Name: PredefinedType
+    Value: FLOOR
+  - Name: ObjectPlacement
+    Value: 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
+--- !u!23 &1834122074
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834122063}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c6803989b5b13ef4d94378c1345eba70, type: 2}
+  - {fileID: 2100000, guid: b75e458f92a099a46a83a8f47ab86e2a, type: 2}
+  - {fileID: 2100000, guid: 06a550d1345517f419d74bd5e3312fbd, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1834122075
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834122063}
+  m_Mesh: {fileID: -6186394875824826432, guid: 7e106d7ec5e34ba4ea006b4d6afd4921, type: 3}
+--- !u!114 &1834122076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834122063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
+--- !u!1 &1931425976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1931425977}
+  m_Layer: 0
+  m_Name: randomEmptyHouseProj 6822
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1931425977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931425976}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalScale: {x: 3.65, y: 3.65, z: 3.65}
+  m_Children:
+  - {fileID: 525035002}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1959165153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1959165154}
+  - component: {fileID: 1959165163}
+  - component: {fileID: 1959165162}
+  - component: {fileID: 1959165161}
+  - component: {fileID: 1959165160}
+  - component: {fileID: 1959165159}
+  - component: {fileID: 1959165158}
+  - component: {fileID: 1959165157}
+  - component: {fileID: 1959165156}
+  - component: {fileID: 1959165155}
+  - component: {fileID: 1959165164}
+  m_Layer: 0
+  m_Name: Fixed:36" x 48":357745
+  m_TagString: RevitObj
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1959165154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959165153}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 1.12401, y: 0.9144, z: -9.81554}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 442936768}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1959165155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959165153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -637001453, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcPresentationLayerAssignment
+  - Name: id
+    Value: A-GLAZ-____-OTLN
+  - Name: Name
+    Value: A-GLAZ-____-OTLN
+--- !u!114 &1959165156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959165153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 40497844, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcMaterialList
+  - Name: id
+    Value: IfcMaterialList_985
+  Materials: []
+--- !u!114 &1959165157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959165153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1016640330, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWindowStyle
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf7jRMG3n
+  - Name: Tag
+    Value: 356990
+  - Name: Name
+    Value: Fixed:36" x 48"
+  - Name: Sizeable
+    Value: false
+  - Name: OperationType
+    Value: NOTDEFINED
+  - Name: ConstructionType
+    Value: NOTDEFINED
+  - Name: ParameterTakesPrecedence
+    Value: false
+--- !u!114 &1959165158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959165153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_WindowCommon
+  - Name: id
+    Value: 3LzzSzWN55Nu_9zcKpYigb
+  - Name: IsExternal
+    Value: false
+  - Name: Reference
+    Value: 36" x 48"
+  - Name: ThermalTransmittance
+    Value: 3.6886
+--- !u!114 &1959165159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959165153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_QuantityTakeOff
+  - Name: id
+    Value: 30MKTLwyX6P8BUUFcsmIIU
+  - Name: Reference
+    Value: 36" x 48"
+--- !u!114 &1959165160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959165153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -899126602, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Name
+    Value: Pset_ProductRequirements
+  - Name: id
+    Value: 127$$kdPTFwQgG8DKDnyMz
+  - Name: Category
+    Value: Windows
+--- !u!114 &1959165161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959165153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 473690124, guid: 8f32c36ad386be643af56036e3332769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attributes:
+  - Name: Product Type
+    Value: IfcWindow
+  - Name: id
+    Value: 0WZmLWcPL1pu_Vf6vRMGV_
+  - Name: Tag
+    Value: 357745
+  - Name: Name
+    Value: Fixed:36" x 48":357745
+  - Name: ObjectType
+    Value: Fixed:36" x 48"
+  - Name: OverallWidth
+    Value: 4
+  - Name: OverallHeight
+    Value: 4
+  - Name: ObjectPlacement
+    Value: 1 0 0 0 0 1 0 0 0 0 1 0 -1.12401 9.81554 0.9144 1
+--- !u!23 &1959165162
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959165153}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 6984bc117913dbd47854aa1d3d04588a, type: 2}
+  - {fileID: 2100000, guid: ca56901bad5f6e14fb1f04e9c61bbccf, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1959165163
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959165153}
+  m_Mesh: {fileID: -8359364971691872848, guid: 52a1a8a49ba0ac243af567d6b75540b5, type: 3}
+--- !u!114 &1959165164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959165153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}

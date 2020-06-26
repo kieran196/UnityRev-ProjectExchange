@@ -172,3 +172,7 @@ FodyWeavers.xsd
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+SocketTest/Library/test.txt
+SocketTest/Library/ArtifactDB
+SocketTest/Library/ArtifactDB
+SocketTest/Library/ArtifactDB

@@ -40,7 +40,7 @@ namespace RevSocketing {
         }
 
         public void ShowForm(UIApplication uiapp) {
-            ExternalEventTest handler = new ExternalEventTest();
+            updatePosEvent handler = new updatePosEvent();
             ExternalEvent exEvent = ExternalEvent.Create(handler);
         }
 
@@ -88,16 +88,27 @@ namespace RevSocketing {
                             // Convert byte array to string message. 						
                             string serverMessage = Encoding.ASCII.GetString(incommingData);
                             Debug.WriteLine("server message received as: " + serverMessage);
-                            StringBuilder sb = new StringBuilder(serverMessage)
-                                .Replace("(", "")
-                                .Replace(")", "");
-                            string[] splitsb = sb.ToString().Split('#');
-                            Debug.WriteLine("ID=" + splitsb[0]);
-                            Debug.WriteLine("COORDS=" + splitsb[1]);
-
-                            
-                            //modifyObjectPosition(uidoc, new ElementId(357285), splitsb[1]);
-                            Result res = modifyObjectPosition(commandData, new ElementId(int.Parse(splitsb[0])), splitsb[1]);
+                            if (serverMessage.StartsWith("GMD")) { //GEOMETRIC DATA
+                                serverMessage = serverMessage.Substring(3);
+                                StringBuilder sb = new StringBuilder(serverMessage)
+                                    .Replace("(", "")
+                                    .Replace(")", "");
+                                string[] splitsb = sb.ToString().Split('#');
+                                Debug.WriteLine("ID=" + splitsb[0]);
+                                Debug.WriteLine("COORDS=" + splitsb[1]);
+                                //modifyObjectPosition(uidoc, new ElementId(357285), splitsb[1]);
+                                Result res = modifyObjectPosition(commandData, new ElementId(int.Parse(splitsb[0])), splitsb[1]);
+                            } else if (serverMessage.StartsWith("BIM")) { //BIM DATA.
+                                serverMessage = serverMessage.Substring(3);
+                                StringBuilder sb = new StringBuilder(serverMessage);
+                                string[] splitsb = sb.ToString().Split('#');
+                                splitsb[1] = splitsb[1].TrimStart().TrimEnd();
+                                splitsb[2] = splitsb[2].TrimStart().TrimEnd();
+                                Debug.WriteLine("ID=" + splitsb[0]);
+                                Debug.WriteLine("KEY=" + splitsb[1]);
+                                Debug.WriteLine("VALUE=" + splitsb[2]);
+                                Result RES = modifyMetaData(new ElementId(int.Parse(splitsb[0])), splitsb[1], splitsb[2]);
+                            }
                         }
                     }
                 }
@@ -106,15 +117,18 @@ namespace RevSocketing {
             }
         }
         public Document uidoc = null;
-        private ExternalEvent exEvent = null;
+        private ExternalEvent upEvent = null; // Update Pos Event
+        private ExternalEvent obcEvent = null; // On BIM change Event
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements) {
             Debug.WriteLine("Execute() called");
             UIApplication uiapp = commandData.Application;
             uidoc = uiapp.ActiveUIDocument.Document;
             Application app = uiapp.Application;
             //Creating a handler.. (Uncomment below)
-            ExternalEventTest handler = new ExternalEventTest();
-            exEvent = ExternalEvent.Create(handler);
+            updatePosEvent posHandler = new updatePosEvent();
+            onDataChangeEvent dataHandler = new onDataChangeEvent();
+            upEvent = ExternalEvent.Create(posHandler);
+            obcEvent = ExternalEvent.Create(dataHandler);
 
             //ExternalEventApp.
             ConnectToTcpServer(commandData);
@@ -124,6 +138,7 @@ namespace RevSocketing {
             using (Transaction tx = new Transaction(uidoc)) {
                 StringBuilder sb = new StringBuilder();
                 tx.Start("transaction");
+                int count = 0;
                 if (pickedObjs != null && pickedObjs.Count > 0) {
                     foreach (ElementId eid in ids) {
                         Element e = uidoc.GetElement(eid);
@@ -133,32 +148,94 @@ namespace RevSocketing {
                             if (positionPoint != null) { // Name -> XYZ Coords -> ID
                                 Debug.WriteLine("LocPoint="+ positionPoint.Point);
                                 LocationPoint Lp = e.Location as LocationPoint;
-                                XYZ ElementPoint = Lp.Point as XYZ;
-                                //modifyObjectPosition(uidoc, eid, new XYZ(10, 10, 10));
-                                sb.Append("\n" + e.Name + "# XYZ:" + ElementPoint + " #ID:" + eid);
+                                updatePosEvent.startingPos = Lp.Point;
+                                sb.Append("\n" + "ID:" + eid + "# " +e.Name + "# XYZ:" + Lp.Point + "#");
                             }
+                            foreach (Parameter param in e.Parameters) {
+                                //sb.Append("# " +GetParameterInformation(param, uidoc));
+                                sb.Append(GetParameterInformation(param, uidoc));
+                            }
+                            if (count < ids.Count-1) {
+                                sb.Append("~");
+                            }
+                            count++;
                         }
                     }
                     // Uncomment below..
                     sendMsgToServer(sb.ToString());
-                    TaskDialog.Show("title:", sb.ToString());
+                    //TaskDialog.Show("title:", sb.ToString());
                 }
                 tx.Commit();
             }
             return Result.Succeeded;
         }
 
+        String GetParameterInformation(Parameter para, Document document) {
+            //string defName = para.Definition.Name + @"\t";
+            string defName = " : " + para.Definition.Name;
+
+            // Use different method to get parameter data according to the storage type
+            switch (para.StorageType) {
+                case StorageType.Double:
+                //covert the number into Metric
+                defName += " : " + para.AsValueString();
+                break;
+                case StorageType.ElementId:
+                //find out the name of the element
+                Autodesk.Revit.DB.ElementId id = para.AsElementId();
+                if (id.IntegerValue >= 0) {
+                    defName += " : " + document.GetElement(id).Name;
+                } else {
+                    defName += " : " + id.IntegerValue.ToString();
+                }
+                break;
+                case StorageType.Integer:
+                if (ParameterType.YesNo == para.Definition.ParameterType) {
+                    if (para.AsInteger() == 0) {
+                        defName += " : " + "False";
+                    } else {
+                        defName += " : " + "True";
+                    }
+                } else {
+                    defName += " : " + para.AsInteger().ToString();
+                }
+                break;
+                case StorageType.String:
+                defName += " : " + para.AsString();
+                break;
+                default:
+                defName = "Unexposed parameter.";
+                break;
+            }
+
+            return defName;
+        }
+
+        public Result modifyMetaData(ElementId eid, string key, string value) {
+            Element e = uidoc.GetElement(eid);
+            ElementId paramValue = new ElementId(BuiltInParameter.ELEM_TYPE_PARAM);
+
+            //string param = GetParameterInformation(e.LookupParameter(key), uidoc);
+            Parameter myParam = e.LookupParameter(key);
+            onDataChangeEvent.uidoc = uidoc;
+            onDataChangeEvent.param = myParam;
+            onDataChangeEvent.newValue = value;
+            obcEvent.Raise();
+            Debug.WriteLine("New param val:" + GetParameterInformation(myParam, uidoc));
+            return Result.Succeeded;
+        }
+
         public Result modifyObjectPosition(ExternalCommandData commandData, ElementId eid, string translation) {
             Element e = uidoc.GetElement(eid);
             string[] XYZSplit = translation.Split(',');
-            XYZ xyztranslation = new XYZ(float.Parse(XYZSplit[0]), float.Parse(XYZSplit[2]), float.Parse(XYZSplit[1]));
-
+            //XYZ xyztranslation = new XYZ(float.Parse(XYZSplit[0]), -(float.Parse(XYZSplit[2])), float.Parse(XYZSplit[1]));
+            XYZ xyztranslation = new XYZ(float.Parse(XYZSplit[0]), (float.Parse(XYZSplit[1])), float.Parse(XYZSplit[2]));
 
             Debug.WriteLine("Setting new XYZ translation:" + xyztranslation.ToString());
-            ExternalEventTest.xyztranslation = xyztranslation;
-            ExternalEventTest.eid = eid;
-            ExternalEventTest.uidoc = uidoc;
-            exEvent.Raise();
+            updatePosEvent.xyztranslation = xyztranslation;
+            updatePosEvent.eid = eid;
+            updatePosEvent.uidoc = uidoc;
+            upEvent.Raise();
 
             // Moving the object is causing exception..
             //e.Location.Move(xyztranslation);
