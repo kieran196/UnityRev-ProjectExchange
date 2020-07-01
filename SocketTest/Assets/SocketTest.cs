@@ -36,6 +36,7 @@ public class SocketTest : MonoBehaviour {
 
         public static readonly float MSGDELAY = 1f;
         private float MsgTimer = 0f;
+        private bool initialDataRecieved = false;
 
     void Update() {
         MsgTimer += Time.deltaTime;
@@ -47,7 +48,13 @@ public class SocketTest : MonoBehaviour {
         if (newDataSet) {
             Debug.Log("New data has been set to true");
             newDataSet = false;
-            splitData(newData.ToString());
+            if (newData.StartsWith("GMD")) {
+                recievedGMD(newData);
+            }
+            if (!initialDataRecieved) {
+                initialDataRecieved = true;
+                splitData(newData.ToString());
+            }
             
         }
         if (openServer) {
@@ -73,10 +80,16 @@ public class SocketTest : MonoBehaviour {
         }
     }
 
+    private bool lastCallFromRevitClient = false;
+
     public int objectMoved() {
         for (int i=0; i<revObjs.Count; i++) {
             if (revObjs[i].transform.position != revObjsPos[i]) {
                 revObjsPos[i] = revObjs[i].transform.position;
+                if (lastCallFromRevitClient) {
+                    lastCallFromRevitClient = false;
+                    return -1;
+                }
                 return i;
             }
         }
@@ -186,6 +199,22 @@ public class SocketTest : MonoBehaviour {
         //sendData();
     }
 
+    void recievedGMD(String serverMessage) {
+        lastCallFromRevitClient = true;
+        serverMessage = serverMessage.Substring(3);
+        StringBuilder sb = new StringBuilder(serverMessage).Replace("(", "").Replace(")", "");
+        String[] splitsb = sb.ToString().Split('#');
+        Debug.Log("ID=" + splitsb[0]);
+        Debug.Log("COORDS=" + splitsb[1]);
+        // Find ID
+        GameObject revObj = FindGameObjectId(splitsb[0]);
+        // Modify Pos
+        String[] xyz = splitsb[1].Split(',');
+        Vector3 rawRevitCoords = new Vector3(float.Parse(xyz[0]), float.Parse(xyz[1]), -float.Parse(xyz[2]));
+        Vector3 coordinateTransform = transformRevitCoords(rawRevitCoords);
+        revObj.transform.position = coordinateTransform;
+    }
+
     Socket listener;
     Socket handler;
 
@@ -239,11 +268,10 @@ public class SocketTest : MonoBehaviour {
                         break;
                     }
 
-                    data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                    data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
                     newData = data.ToString();
-                    newDataSet = true;
                     Debug.Log("Recieved Data:" + data.ToString());
-                    
+                    newDataSet = true;
                     /*String sendData = "ID:"+revId + ", POS:" + revObjPos;
                     byte[] msg = Encoding.ASCII.GetBytes(sendData);
                     handler.Send(msg);

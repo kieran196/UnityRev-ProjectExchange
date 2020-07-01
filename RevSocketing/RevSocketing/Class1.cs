@@ -15,6 +15,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using RevSocketing;
+using Autodesk.Revit.Exceptions;
 
 namespace RevSocketing {
 
@@ -52,6 +53,7 @@ namespace RevSocketing {
 
         private TcpClient socketConnection;
         private Thread clientReceiveThread;
+        private Thread mainLoopThread;
         private Socket sender;
         private void sendMsgToServer(string message) {
             if (socketConnection != null) {
@@ -59,6 +61,37 @@ namespace RevSocketing {
                 byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(message);
                 Debug.WriteLine("Sending : " + message);
                 nwStream.Write(bytesToSend, 0, bytesToSend.Length);
+            }
+        }
+
+        public void sendGMDData(string eleId, string newObjPos) {
+            String sendData = "GMD" + eleId + "#" + newObjPos;
+            sendMsgToServer(sendData);
+        }
+
+        public void mainLoop() {
+            //try {
+                while (true) {
+                    chPosEvent.Raise();
+                    /*Element e = onIdPositionChanged();
+                    if (e != null) {
+                    Debug.WriteLine(e.Name + " position has been modified..");
+                        Autodesk.Revit.DB.LocationPoint locationPoint = e.Location as Autodesk.Revit.DB.LocationPoint;
+                        sendGMDData(e.Id.ToString(), locationPoint.Point.ToString());
+                    }*/
+                }
+            //} catch (InternalException e) {
+            //    Debug.WriteLine("Main loop internal exception " + e);
+            //}
+        }
+
+        private void initializeMainLoop() {
+            try {
+                mainLoopThread = new Thread(() => mainLoop());
+                mainLoopThread.IsBackground = true;
+                mainLoopThread.Start();
+            } catch (Exception e) {
+                Debug.WriteLine("Exception occured initializing main loop " + e);
             }
         }
 
@@ -89,6 +122,7 @@ namespace RevSocketing {
                             string serverMessage = Encoding.ASCII.GetString(incommingData);
                             Debug.WriteLine("server message received as: " + serverMessage);
                             if (serverMessage.StartsWith("GMD")) { //GEOMETRIC DATA
+                                onPositionChangeEvent.lastCallFromUnityClient = true;
                                 serverMessage = serverMessage.Substring(3);
                                 StringBuilder sb = new StringBuilder(serverMessage)
                                     .Replace("(", "")
@@ -116,32 +150,60 @@ namespace RevSocketing {
                 Debug.WriteLine("Socket exception: " + socketException);
             }
         }
+
+        /*public Element onIdPositionChanged() {
+            if (ids != null && idCoordinates != null) {
+                for (int i = 0; i < ids.Count; i++) {
+                    Element e = uidoc.GetElement(ids[i]);
+                    if (e != null && e.Location != null) {
+                        Autodesk.Revit.DB.LocationPoint locationPoint = e.Location as Autodesk.Revit.DB.LocationPoint;
+                        if (locationPoint.Point != null) {
+                            if (!vectorIsEqual(idCoordinates[i], locationPoint.Point)) {
+                                //if (!idCoordinates[i].Equals(positionPoint.Point)) {
+                                Debug.WriteLine("Old Pos:" + idCoordinates[i] + " | New Pos:" + locationPoint.Point);
+                                idCoordinates[i] = locationPoint.Point;
+                                return e;
+                            }
+                        }
+                    }
+                }
+                return null;
+            }
+            return null;
+        }*/
+
         public Document uidoc = null;
         private ExternalEvent upEvent = null; // Update Pos Event
         private ExternalEvent obcEvent = null; // On BIM change Event
+        private ExternalEvent chPosEvent = null; // Update on Pos change Event
+        public List<ElementId> ids;
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements) {
             Debug.WriteLine("Execute() called");
+            onPositionChangeEvent.classInstance = this;
             UIApplication uiapp = commandData.Application;
             uidoc = uiapp.ActiveUIDocument.Document;
             Application app = uiapp.Application;
             //Creating a handler.. (Uncomment below)
             updatePosEvent posHandler = new updatePosEvent();
             onDataChangeEvent dataHandler = new onDataChangeEvent();
+            onPositionChangeEvent posChangeHandler = new onPositionChangeEvent();
             upEvent = ExternalEvent.Create(posHandler);
             obcEvent = ExternalEvent.Create(dataHandler);
-
+            chPosEvent = ExternalEvent.Create(posChangeHandler);
             //ExternalEventApp.
             ConnectToTcpServer(commandData);
-
             IList<Reference> pickedObjs = uiapp.ActiveUIDocument.Selection.PickObjects(ObjectType.Element, "Select elements");
-            List<ElementId> ids = (from Reference r in pickedObjs select r.ElementId).ToList();
+            ids = (from Reference r in pickedObjs select r.ElementId).ToList();
+            onPositionChangeEvent.idCoordinates = new XYZ[ids.Count];
             using (Transaction tx = new Transaction(uidoc)) {
                 StringBuilder sb = new StringBuilder();
                 tx.Start("transaction");
                 int count = 0;
+                int loopCount = 0;
                 if (pickedObjs != null && pickedObjs.Count > 0) {
                     foreach (ElementId eid in ids) {
                         Element e = uidoc.GetElement(eid);
+                        onPositionChangeEvent.idCoordinates[loopCount] = XYZ.Zero;
                         //StringBuilder myParams = new StringBuilder();
                         if (e != null) {
                             Autodesk.Revit.DB.LocationPoint positionPoint = e.Location as Autodesk.Revit.DB.LocationPoint;
@@ -149,6 +211,7 @@ namespace RevSocketing {
                                 Debug.WriteLine("LocPoint="+ positionPoint.Point);
                                 LocationPoint Lp = e.Location as LocationPoint;
                                 updatePosEvent.startingPos = Lp.Point;
+                                onPositionChangeEvent.idCoordinates[loopCount] = Lp.Point;
                                 sb.Append("\n" + "ID:" + eid + "# " +e.Name + "# XYZ:" + Lp.Point + "#");
                             }
                             foreach (Parameter param in e.Parameters) {
@@ -160,6 +223,7 @@ namespace RevSocketing {
                             }
                             count++;
                         }
+                        loopCount++;
                     }
                     // Uncomment below..
                     sendMsgToServer(sb.ToString());
@@ -167,6 +231,7 @@ namespace RevSocketing {
                 }
                 tx.Commit();
             }
+            initializeMainLoop();
             return Result.Succeeded;
         }
 
