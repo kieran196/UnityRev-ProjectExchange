@@ -265,6 +265,39 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="Clipper">
+      <HintPath>Assets/Tridify/Plugins/Clipper.dll</HintPath>
+    </Reference>
+    <Reference Include="LibTessDotNet">
+      <HintPath>Assets/Tridify/Plugins/LibTessDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets/Tridify/Plugins/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Sprache">
+      <HintPath>Assets/Tridify/Plugins/Sprache.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Core">
+      <HintPath>Assets/Tridify/Plugins/System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>Assets/Tridify/Plugins/System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>Assets/Tridify/Plugins/System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices">
+      <HintPath>Assets/Tridify/Plugins/System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading">
+      <HintPath>Assets/Tridify/Plugins/System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="TridifyComponents">
+      <HintPath>Assets/Tridify/Plugins/TridifyComponents.dll</HintPath>
+    </Reference>
+    <Reference Include="TridifyEditorTools">
+      <HintPath>Assets/Tridify/Plugins/TridifyEditorTools.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2019.3.13f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
     </Reference>
@@ -655,6 +688,9 @@
     <Compile Include="Packages\com.unity.2d.spriteshape\Runtime\SpriteShapeGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Tridify\DemoAssets\FirstPersonController\README.txt" />
+    <None Include="Assets\Tridify\DemoAssets\Materials\TridifySample_MaterialMapping.txt" />
+    <None Include="Assets\Tridify\README.txt" />
     <None Include="Packages\com.unity.2d.animation\Editor\Assets\LayoutOverlay\LayoutOverlay.uxml" />
     <None Include="Packages\com.unity.2d.animation\Editor\Assets\LayoutOverlay\LayoutOverlayStyle.uss" />
     <None Include="Packages\com.unity.2d.animation\Editor\Assets\LayoutOverlay\ScrollableToolbar.uss" />

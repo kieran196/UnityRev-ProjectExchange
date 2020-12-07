@@ -54,12 +54,13 @@ public class RevAttributes : MonoBehaviour {
     }*/
 
     void Awake() {
+        Debug.Log(this.transform.name + " | " +GetComponent<MeshFilter>().mesh.subMeshCount);
         mainServer = FindObjectOfType<SocketTest>();
         /*assignPropertiesCapacity(2);
         addProperty(0, "Bob");
         addProperty(1, "Tim");*/
         // Assign the tags
-        if (GetComponent<IfcDoor>() != null) {
+        /*if (GetComponent<IfcDoor>() != null) {
             ID_TAG = GetComponent<IfcDoor>().Attributes[2].Value;
         } else if (GetComponent<IfcCovering>() != null) {
             ID_TAG = GetComponent<IfcCovering>().Attributes[2].Value;
@@ -69,6 +70,13 @@ public class RevAttributes : MonoBehaviour {
             ID_TAG = GetComponent<IfcWallStandardCase>().Attributes[2].Value;
         } else if (GetComponent<IfcWindow>() != null) {
             ID_TAG = GetComponent<IfcWindow>().Attributes[2].Value;
+        }*/
+		string[] splitName = this.transform.name.Split(':');
+		string[] splitId = splitName[splitName.Length-1].Split(' ');
+		ID_TAG = splitId[0];
+        if (UNIQUE_ID.Length > 1)
+        {
+            ID_TAG = UNIQUE_ID;
         }
     }
 

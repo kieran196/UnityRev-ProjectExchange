@@ -61,11 +61,29 @@ namespace RevSocketing {
                 byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(message);
                 Debug.WriteLine("Sending : " + message);
                 nwStream.Write(bytesToSend, 0, bytesToSend.Length);
+                Thread.Sleep(100); // 100ms sleep.
             }
         }
 
         public void sendGMDData(string eleId, string newObjPos) {
             String sendData = "GMD" + eleId + "#" + newObjPos;
+            sendMsgToServer(sendData);
+        }
+
+        public void sendERRData(string errorType) {
+            String sendData = "ERR#"+ errorType;
+            sendMsgToServer(sendData);
+        }
+
+        public void sendMeshData(string eleId, string meshData, string type) {
+            string sendData = "";
+            if (type == "tris")
+            {
+                sendData = "MDT" + eleId + "#" + meshData;
+            } else if (type == "verts")
+            {
+                sendData = "MDV" + eleId + "#" + meshData;
+            }
             sendMsgToServer(sendData);
         }
 
@@ -105,6 +123,7 @@ namespace RevSocketing {
                 Debug.WriteLine("On client connect exception " + e);
             }
         }
+        private bool updatedMetadata = false;
         private void ListenForData(ExternalCommandData commandData) {
             try {
                 socketConnection = new TcpClient("localhost", 11000);
@@ -172,6 +191,17 @@ namespace RevSocketing {
             return null;
         }*/
 
+        private List<ElementId> getAllElementsInDoc(Document doc) {
+            List<ElementId> elements = new List<ElementId>();
+            FilteredElementCollector collector = new FilteredElementCollector(doc).WhereElementIsNotElementType();
+            foreach (Element e in collector) {
+                if (e.Category != null && e.Category.HasMaterialQuantities) {
+                    elements.Add(e.Id);
+                }
+            }
+            return elements;
+        }
+
         public Document uidoc = null;
         private ExternalEvent upEvent = null; // Update Pos Event
         private ExternalEvent obcEvent = null; // On BIM change Event
@@ -180,32 +210,73 @@ namespace RevSocketing {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements) {
             Debug.WriteLine("Execute() called");
             onPositionChangeEvent.classInstance = this;
+            meshSender.classInstance = this;
+            updatePosEvent.classInstance = this;
             UIApplication uiapp = commandData.Application;
             uidoc = uiapp.ActiveUIDocument.Document;
             Application app = uiapp.Application;
             //Creating a handler.. (Uncomment below)
+            meshSender meshSend = new meshSender();
             updatePosEvent posHandler = new updatePosEvent();
             onDataChangeEvent dataHandler = new onDataChangeEvent();
             onPositionChangeEvent posChangeHandler = new onPositionChangeEvent();
             upEvent = ExternalEvent.Create(posHandler);
             obcEvent = ExternalEvent.Create(dataHandler);
             chPosEvent = ExternalEvent.Create(posChangeHandler);
+            warningEvents.updatePosHandler = posHandler;
             //ExternalEventApp.
             ConnectToTcpServer(commandData);
-            IList<Reference> pickedObjs = uiapp.ActiveUIDocument.Selection.PickObjects(ObjectType.Element, "Select elements");
-            ids = (from Reference r in pickedObjs select r.ElementId).ToList();
+            //IList<Reference> pickedObjs = uiapp.ActiveUIDocument.Selection.PickObjects(ObjectType.Element, "Select elements");
+            //ids = (from Reference r in pickedObjs select r.ElementId).ToList();
+            ids = getAllElementsInDoc(uidoc);
             onPositionChangeEvent.idCoordinates = new XYZ[ids.Count];
             using (Transaction tx = new Transaction(uidoc)) {
-                StringBuilder sb = new StringBuilder();
+                StringBuilder sb = new StringBuilder("init");
                 tx.Start("transaction");
+
+                //Get Point Coordinates
+                /*ElementCategoryFilter filter = new ElementCategoryFilter(BuiltInCategory.OST_ProjectBasePoint);
+
+                FilteredElementCollector collector = new FilteredElementCollector(uidoc);
+                IList<Element> newElements = collector.WherePasses(filter).ToElements();
+
+                foreach (Element element in newElements)
+                {
+                    double x = element.get_Parameter(BuiltInParameter.BASEPOINT_EASTWEST_PARAM).AsDouble();
+                    double y = element.get_Parameter(BuiltInParameter.BASEPOINT_NORTHSOUTH_PARAM).AsDouble();
+                    double elevation = element.get_Parameter(BuiltInParameter.BASEPOINT_ELEVATION_PARAM).AsDouble();
+                    XYZ projectBasePoint = new XYZ(x, y, elevation);
+                    Debug.WriteLine("Base Points:" + projectBasePoint.ToString());
+                }*/
+
+
                 int count = 0;
                 int loopCount = 0;
-                if (pickedObjs != null && pickedObjs.Count > 0) {
+                if (ids != null && ids.Count > 0) {
                     foreach (ElementId eid in ids) {
                         Element e = uidoc.GetElement(eid);
+                        // Experimental.. Trying to send mesh data over network. (Mostly works)
+                        //meshSend.sendMeshData(e);
                         onPositionChangeEvent.idCoordinates[loopCount] = XYZ.Zero;
-                        //StringBuilder myParams = new StringBuilder();
                         if (e != null) {
+                            ElementId neweid = e.Id;
+                            Debug.WriteLine("Element ID:" + e.Id + " , " + e.UniqueId + " , " + neweid);
+                            GeometryElement geoEle = e.get_Geometry(new Options());
+                            if (geoEle != null) {
+                                foreach (GeometryObject geoObject in geoEle)
+                                {
+                                    GeometryInstance inst = geoObject as GeometryInstance;
+                                    if (inst != null)
+                                    {
+                                        Debug.WriteLine("GEOID:" + eid + " | " + inst.Transform.Origin);
+                                    }
+                                }
+                                BoundingBoxXYZ box = geoEle.GetBoundingBox();
+                                if (box != null)
+                                {
+                                    Debug.WriteLine("BBID:" + eid + " | " + box.Transform.Origin);
+                                }
+                            }
                             Autodesk.Revit.DB.LocationPoint positionPoint = e.Location as Autodesk.Revit.DB.LocationPoint;
                             if (positionPoint != null) { // Name -> XYZ Coords -> ID
                                 Debug.WriteLine("LocPoint="+ positionPoint.Point);
@@ -218,15 +289,19 @@ namespace RevSocketing {
                                 //sb.Append("# " +GetParameterInformation(param, uidoc));
                                 sb.Append(GetParameterInformation(param, uidoc));
                             }
-                            if (count < ids.Count-1) {
-                                sb.Append("~");
-                            }
+                            /*if (count < ids.Count-1) {
+                                Debug.WriteLine("Sending to server..");
+                                sendMsgToServer(sb.ToString());
+                                sb = new StringBuilder("");
+                            }*/
                             count++;
                         }
+                        Debug.WriteLine("Sending to server..");
+                        sendMsgToServer(sb.ToString());
+                        sb = new StringBuilder("init");
                         loopCount++;
                     }
                     // Uncomment below..
-                    sendMsgToServer(sb.ToString());
                     //TaskDialog.Show("title:", sb.ToString());
                 }
                 tx.Commit();
@@ -237,8 +312,11 @@ namespace RevSocketing {
 
         String GetParameterInformation(Parameter para, Document document) {
             //string defName = para.Definition.Name + @"\t";
+            if (para == null) {
+                Debug.WriteLine("Parameter was null..");
+                return null;
+            }
             string defName = " : " + para.Definition.Name;
-
             // Use different method to get parameter data according to the storage type
             switch (para.StorageType) {
                 case StorageType.Double:
@@ -286,7 +364,7 @@ namespace RevSocketing {
             onDataChangeEvent.param = myParam;
             onDataChangeEvent.newValue = value;
             obcEvent.Raise();
-            Debug.WriteLine("New param val:" + GetParameterInformation(myParam, uidoc));
+            updatedMetadata = true;
             return Result.Succeeded;
         }
 

@@ -16,6 +16,9 @@ namespace RevSocketing {
         public static string newValue = null;
 
         public void Execute(UIApplication app) {
+            if (param == null) {
+                return;
+            }
             using (Transaction tx = new Transaction(uidoc)) {
                 tx.Start("On Data Change Instance");
                 Debug.WriteLine("New Val:" + newValue);

@@ -13,7 +13,7 @@ public class SocketTest : MonoBehaviour {
     [SerializeField]
     private SERVER_STATUS serverStatus;
     [SerializeField]
-    private bool openServer;
+    private bool openServer, autoStart;
     [SerializeField]
     private bool closeServer;
     [SerializeField]
@@ -26,6 +26,10 @@ public class SocketTest : MonoBehaviour {
     void Start() {
         serverStatus = SERVER_STATUS.NULL;
         allObjects = GameObject.FindGameObjectsWithTag("RevitObj");
+        if (autoStart) {
+            Application.runInBackground = true;
+            startServer();
+        }
         //Application.runInBackground = true;
         //startServer();
     }
@@ -45,18 +49,36 @@ public class SocketTest : MonoBehaviour {
         }*/
         // A change of data has occured?
         //Debug.Log("New data set:" + newDataSet);
+        if (newData.StartsWith("MDT")) {
+            recievedMDT(newData);
+            return;
+        }
+        if (newData.StartsWith("MDV")) {
+            recievedMDV(newData);
+            return;
+        }
         if (newDataSet) {
             Debug.Log("New data has been set to true");
             newDataSet = false;
             if (newData.StartsWith("GMD")) {
                 recievedGMD(newData);
             }
-            if (!initialDataRecieved) {
-                initialDataRecieved = true;
-                splitData(newData.ToString());
+            if (newData.StartsWith("init")) {
+                splitData(newData);
             }
-            
+            if (newData.StartsWith("ERR")) {
+                undoLastMove();
+            }
         }
+        /*
+         if (newData.StartsWith("GMD"))
+        {
+            recievedGMD(newData);
+        }
+        if (newData.StartsWith("init")) {
+            splitData(newData);
+        }
+         */
         if (openServer) {
             openServer = false;
             //splitData("34 x 84 # XYZ:(32, 23, 32) #ID:208F");
@@ -67,24 +89,37 @@ public class SocketTest : MonoBehaviour {
             closeServer = false;
             stopServer();
         }  if (MsgTimer > MSGDELAY) {
-            int objMovedIndex = objectMoved();
+            objMovedIndex = objectMoved();
+            //Debug.Log("Obj moved:" + objMovedIndex);
             if (objMovedIndex != -1) {
                 MsgTimer = 0f;
-                //oldPos = revObjTest.transform.position;
-                //revObjPos = oldPos;
                 RevAttributes objAttributes = revObjs[objMovedIndex].GetComponent<RevAttributes>();
-                Vector3 offset = objAttributes.startingPosition - revObjsPos[objMovedIndex];
-                sendGMDData(objAttributes.getId(), offset.ToString());
+                //Vector3 offset = objAttributes.startingPosition - revObjsPos[objMovedIndex];
+                //sendGMDData(objAttributes.getId(), offset.ToString());
+                sendGMDData(objAttributes.getId(), MoveOffset.ToString());
                 //sendData(objAttributes.getId(), revObjsPos[objMovedIndex].ToString());
             }
         }
     }
 
+    public int objMovedIndex = -1; //Last object moved index.
+    // Brief testing of my undo method and I found a bug. Basically if it sends two ERR messages, the software getst confused and doesn't revert it to the correct last position. Instead it remains in the same pos, and as a result creates a mismatch between the element in Revit and Unity. Can be easily reproduced by constantly dragging a GameObject to an invalid position.
+    private void undoLastMove() {
+        if (objMovedIndex != -1) {
+            revObjs[objMovedIndex].transform.position -= MoveOffset;
+            revObjsPos[objMovedIndex] = revObjs[objMovedIndex].transform.position;
+        }
+    }
+
     private bool lastCallFromRevitClient = false;
+    private Vector3 MoveOffset;
 
     public int objectMoved() {
         for (int i=0; i<revObjs.Count; i++) {
+            //Debug.Log("obj:" + revObjs[i].name + " | " + revObjsPos[i]);
             if (revObjs[i].transform.position != revObjsPos[i]) {
+                Debug.Log("Obj moved:" + revObjs[i]);
+                MoveOffset = revObjs[i].transform.position - revObjsPos[i];
                 revObjsPos[i] = revObjs[i].transform.position;
                 if (lastCallFromRevitClient) {
                     lastCallFromRevitClient = false;
@@ -101,16 +136,18 @@ public class SocketTest : MonoBehaviour {
         SocketThread.IsBackground = true;
         SocketThread.Start();
     }
-
+    [SerializeField]
     private List<GameObject> revObjs = new List<GameObject>();
+    [SerializeField]
     private List<Vector3> revObjsPos = new List<Vector3>();
     private String revId;
 
     private GameObject[] allObjects;
     public GameObject FindGameObjectId(string ID) {
         foreach (GameObject obj in allObjects) {
-            Debug.Log(ID+" COMPARED ID:" + obj.GetComponent<RevAttributes>().getId());
+            //Debug.Log(ID+" COMPARED ID:" + obj.GetComponent<RevAttributes>().getId());
             if (obj.GetComponent<RevAttributes>().getId().Equals(ID)) {
+                obj.GetComponent<Renderer>().material.color = Color.green;
                 return obj;
             }
         } // Not found..
@@ -139,15 +176,16 @@ public class SocketTest : MonoBehaviour {
     }
 
     public void splitData(String data) {
-        String[] splitElements = data.Split('~');
+        //String[] splitElements = data.Split('~');
         String[] splitBIMData = null;
         GameObject revObj = null;
-        Debug.Log("Number of objects sent:" + splitElements.Length);
-        foreach (String element in splitElements) {
-            String[] splitData = element.Split('#');
+        //Debug.Log("Number of objects sent:" + splitElements.Length);
+        //foreach (String element in splitElements) {
+            String[] splitData = data.Split('#');
             Debug.Log("Splitting data into "+splitData.Length + " sections.");
             for (int i=0;i<splitData.Length;i++) {
                 if (i==0) { //ID
+                    splitData[i] = splitData[i].Substring(4);
                     splitData[i] = splitData[i].Replace("ID:", "");
                     splitData[i] = splitData[i].Trim();
                     Debug.Log("Looking for ID:" + splitData[i]);
@@ -158,8 +196,9 @@ public class SocketTest : MonoBehaviour {
                         revObjs.Add(revObj);
                     } else {
                         Debug.Log("ID:"+splitData[i] + " cannot be found.. Exiting");
-                        break;
-                        //return;
+                        //newData = "";
+                        //break;
+                        return;
                     }
                 } else if (i==1) {//Name
                     revObj.name = splitData[i];
@@ -169,12 +208,12 @@ public class SocketTest : MonoBehaviour {
                     String newStr = stringBuilder.ToString().Remove(stringBuilder.Length-2);
                     String[] xyz = newStr.Split(',');
                     //string x = xyz[0].Replace("XYZ:, "").Replace("(", "");
-                    Debug.Log("X VAL:" + xyz[0]);
-                    Debug.Log("Y VAL:" + xyz[1]);
-                    Debug.Log("Z VAL:" + xyz[2]);
+                    //Debug.Log("X VAL:" + xyz[0]);
+                    //Debug.Log("Y VAL:" + xyz[1]);
+                    //Debug.Log("Z VAL:" + xyz[2]);
                     Vector3 rawRevitCoords = new Vector3(float.Parse(xyz[0]), float.Parse(xyz[1]), float.Parse(xyz[2]));
                     Vector3 coordinateTransform = transformRevitCoords(rawRevitCoords);
-                    revObj.transform.position = coordinateTransform;
+                    //revObj.transform.position = coordinateTransform;
                     revObj.GetComponent<RevAttributes>().startingPosition = coordinateTransform;
                     //TODO GET POS;
                 } else if (i== 3) {
@@ -186,17 +225,52 @@ public class SocketTest : MonoBehaviour {
                         //splitBIMData
                         int d = 1;
                         for (int n=1; n<splitBIMData.Length; n+=2) {
-                            Debug.Log("Data:" + splitBIMData[n] + ","+splitBIMData[n+1]);
-                            revObj.GetComponent<RevAttributes>().addProperty(d-1, splitBIMData[n], splitBIMData[n+1]);
+                            if (n >= splitBIMData.Length-1) continue;
+                            //Debug.Log("Data:" + splitBIMData[n] + ","+splitBIMData[n+1]);
+                            revObj.GetComponent<RevAttributes>().addProperty(d-1, splitBIMData[n].TrimStart().TrimEnd(), splitBIMData[n+1].TrimStart().TrimEnd());
                             d++;
                         }
                     }
                 }
             }
+            //newData = "";
             revObjsPos.Add(revObj.transform.position);
-            //revObjPos = revObj.transform.position;
+        //}
+    }
+
+    void recievedMDT(String serverMessage) // Triangles
+    {
+        serverMessage = serverMessage.Substring(3);
+        String[] splitb = serverMessage.Split('#');
+        Debug.Log("Splitting triangles for ID = " + splitb[0]);
+        String[] splitTris = splitb[1].Split(' ');
+        meshCreator.newTriangles = new int[splitTris.Length-1];
+        int count = 0;
+        foreach (String tri in splitTris) {
+            if (tri.Length >= 1) {
+                meshCreator.newTriangles[count] = int.Parse(tri);
+                count++;
+            }
+            //Debug.Log("Tri:" + tri);
         }
-        //sendData();
+    }
+
+    public meshCreation meshCreator;
+
+    void recievedMDV(String serverMessage) // Vertices
+    {
+        serverMessage = serverMessage.Substring(3);
+        String[] splitb = serverMessage.Split('#');
+        Debug.Log("Splitting vertices for ID = " + splitb[0]);
+        meshCreator.newVertices = new Vector3[splitb.Length-2];
+        for (int i=1; i< splitb.Length; i++) {
+            String[] xyzVert = splitb[i].Split(',');
+            if (xyzVert.Length > 1) {
+                meshCreator.newVertices[i - 1].x = float.Parse(xyzVert[0].Trim());
+                meshCreator.newVertices[i - 1].y = float.Parse(xyzVert[1].Trim());
+                meshCreator.newVertices[i - 1].z = float.Parse(xyzVert[2].Trim());
+            }
+        }
     }
 
     void recievedGMD(String serverMessage) {
@@ -210,9 +284,10 @@ public class SocketTest : MonoBehaviour {
         GameObject revObj = FindGameObjectId(splitsb[0]);
         // Modify Pos
         String[] xyz = splitsb[1].Split(',');
-        Vector3 rawRevitCoords = new Vector3(float.Parse(xyz[0]), float.Parse(xyz[1]), -float.Parse(xyz[2]));
+        Vector3 rawRevitCoords = new Vector3(float.Parse(xyz[0]), float.Parse(xyz[1]), float.Parse(xyz[2]));
         Vector3 coordinateTransform = transformRevitCoords(rawRevitCoords);
-        revObj.transform.position = coordinateTransform;
+        Debug.Log("coordChange:" + coordinateTransform);
+        revObj.transform.position += coordinateTransform;
     }
 
     Socket listener;
@@ -257,7 +332,7 @@ public class SocketTest : MonoBehaviour {
 
                 // An incoming connection needs to be processed.
                 while (keepReading) {
-                    bytes = new byte[1024];
+                    bytes = new byte[2048];
                     int bytesRec = handler.Receive(bytes);
                     Debug.Log("Received from Server:" + bytesRec);
 
