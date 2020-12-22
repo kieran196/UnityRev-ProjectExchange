@@ -16,6 +16,8 @@ using System.Net.Sockets;
 using System.Threading;
 using RevSocketing;
 using Autodesk.Revit.Exceptions;
+using Autodesk.Revit.DB.Events;
+using System.IO;
 
 namespace RevSocketing {
 
@@ -61,12 +63,17 @@ namespace RevSocketing {
                 byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(message);
                 Debug.WriteLine("Sending : " + message);
                 nwStream.Write(bytesToSend, 0, bytesToSend.Length);
-                Thread.Sleep(100); // 100ms sleep.
+                Thread.Sleep(20); // 100ms sleep.
             }
         }
 
-        public void sendGMDData(string eleId, string newObjPos) {
-            String sendData = "GMD" + eleId + "#" + newObjPos;
+        public void sendGMDData(string eleId, string type, string newGMDValue) {
+            String sendData = "";
+            if (type == "POS") {
+                sendData = "GMDP" + eleId + "#" + newGMDValue;
+            } else if (type == "ROT") {
+                sendData = "GMDR" + eleId + "#" + newGMDValue;
+            }
             sendMsgToServer(sendData);
         }
 
@@ -88,19 +95,9 @@ namespace RevSocketing {
         }
 
         public void mainLoop() {
-            //try {
                 while (true) {
                     chPosEvent.Raise();
-                    /*Element e = onIdPositionChanged();
-                    if (e != null) {
-                    Debug.WriteLine(e.Name + " position has been modified..");
-                        Autodesk.Revit.DB.LocationPoint locationPoint = e.Location as Autodesk.Revit.DB.LocationPoint;
-                        sendGMDData(e.Id.ToString(), locationPoint.Point.ToString());
-                    }*/
                 }
-            //} catch (InternalException e) {
-            //    Debug.WriteLine("Main loop internal exception " + e);
-            //}
         }
 
         private void initializeMainLoop() {
@@ -140,17 +137,26 @@ namespace RevSocketing {
                             // Convert byte array to string message. 						
                             string serverMessage = Encoding.ASCII.GetString(incommingData);
                             Debug.WriteLine("server message received as: " + serverMessage);
-                            if (serverMessage.StartsWith("GMD")) { //GEOMETRIC DATA
+                            if (serverMessage.StartsWith("GMDP")) { //GEOMETRIC DATA
                                 onPositionChangeEvent.lastCallFromUnityClient = true;
-                                serverMessage = serverMessage.Substring(3);
+                                serverMessage = serverMessage.Substring(4);
                                 StringBuilder sb = new StringBuilder(serverMessage)
                                     .Replace("(", "")
                                     .Replace(")", "");
                                 string[] splitsb = sb.ToString().Split('#');
                                 Debug.WriteLine("ID=" + splitsb[0]);
                                 Debug.WriteLine("COORDS=" + splitsb[1]);
-                                //modifyObjectPosition(uidoc, new ElementId(357285), splitsb[1]);
-                                Result res = modifyObjectPosition(commandData, new ElementId(int.Parse(splitsb[0])), splitsb[1]);
+                                Result res = modifyObjectGMD(commandData, new ElementId(int.Parse(splitsb[0])), "POS", splitsb[1]);
+                            } else if (serverMessage.StartsWith("GMDR")) { //GEOMETRIC DATA
+                                onPositionChangeEvent.lastCallFromUnityClient = true;
+                                serverMessage = serverMessage.Substring(4);
+                                StringBuilder sb = new StringBuilder(serverMessage)
+                                    .Replace("(", "")
+                                    .Replace(")", "");
+                                string[] splitsb = sb.ToString().Split('#');
+                                Debug.WriteLine("ID=" + splitsb[0]);
+                                Debug.WriteLine("COORDS=" + splitsb[1]);
+                                Result res = modifyObjectGMD(commandData, new ElementId(int.Parse(splitsb[0])), "ROT", splitsb[1]);
                             } else if (serverMessage.StartsWith("BIM")) { //BIM DATA.
                                 serverMessage = serverMessage.Substring(3);
                                 StringBuilder sb = new StringBuilder(serverMessage);
@@ -170,27 +176,6 @@ namespace RevSocketing {
             }
         }
 
-        /*public Element onIdPositionChanged() {
-            if (ids != null && idCoordinates != null) {
-                for (int i = 0; i < ids.Count; i++) {
-                    Element e = uidoc.GetElement(ids[i]);
-                    if (e != null && e.Location != null) {
-                        Autodesk.Revit.DB.LocationPoint locationPoint = e.Location as Autodesk.Revit.DB.LocationPoint;
-                        if (locationPoint.Point != null) {
-                            if (!vectorIsEqual(idCoordinates[i], locationPoint.Point)) {
-                                //if (!idCoordinates[i].Equals(positionPoint.Point)) {
-                                Debug.WriteLine("Old Pos:" + idCoordinates[i] + " | New Pos:" + locationPoint.Point);
-                                idCoordinates[i] = locationPoint.Point;
-                                return e;
-                            }
-                        }
-                    }
-                }
-                return null;
-            }
-            return null;
-        }*/
-
         private List<ElementId> getAllElementsInDoc(Document doc) {
             List<ElementId> elements = new List<ElementId>();
             FilteredElementCollector collector = new FilteredElementCollector(doc).WhereElementIsNotElementType();
@@ -201,6 +186,42 @@ namespace RevSocketing {
             }
             return elements;
         }
+
+        // Revit API doesn't support new creation of parameters to elements programatically..
+
+        /*private void RawCreateProjectParameter(Application app, string name, ParameterType type, bool visible, CategorySet cats, BuiltInParameterGroup group, bool inst)
+        {
+            string oriFile = app.SharedParametersFilename;
+            string tempFile = Path.GetTempFileName() + ".txt";
+            using (File.Create(tempFile)) { }
+            app.SharedParametersFilename = tempFile;
+
+            var defOptions = new ExternalDefinitionCreationOptions(name, type)
+            {
+                Visible = visible
+            };
+            ExternalDefinition def = app.OpenSharedParameterFile().Groups.Create("TemporaryDefintionGroup").Definitions.Create(defOptions) as ExternalDefinition;
+
+            app.SharedParametersFilename = oriFile;
+            File.Delete(tempFile);
+
+            Autodesk.Revit.DB.Binding binding = app.Create.NewTypeBinding(cats);
+            if (inst) binding = app.Create.NewInstanceBinding(cats);
+
+            BindingMap map = (new UIApplication(app)).ActiveUIDocument.Document.ParameterBindings;
+            if (!map.Insert(def, binding, group))
+            {
+                Trace.WriteLine($"Failed to create Project parameter '{name}' :(");
+            }
+        }
+
+        private void createSharedParamTest(Document doc, Application app)
+        {
+            Category mats = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Materials);
+            CategorySet cats = app.Create.NewCategorySet();
+            cats.Insert(mats);
+            RawCreateProjectParameter(app, "newParamNameTest", ParameterType.Text, true, cats, BuiltInParameterGroup.PG_IDENTITY_DATA, true);
+        }*/
 
         public Document uidoc = null;
         private ExternalEvent upEvent = null; // Update Pos Event
@@ -223,6 +244,7 @@ namespace RevSocketing {
             upEvent = ExternalEvent.Create(posHandler);
             obcEvent = ExternalEvent.Create(dataHandler);
             chPosEvent = ExternalEvent.Create(posChangeHandler);
+            app.DocumentChanged += new EventHandler<DocumentChangedEventArgs>(onElementCreated.OnNewElementCreated);
             warningEvents.updatePosHandler = posHandler;
             //ExternalEventApp.
             ConnectToTcpServer(commandData);
@@ -230,10 +252,10 @@ namespace RevSocketing {
             //ids = (from Reference r in pickedObjs select r.ElementId).ToList();
             ids = getAllElementsInDoc(uidoc);
             onPositionChangeEvent.idCoordinates = new XYZ[ids.Count];
+            onPositionChangeEvent.idRotations = new double[ids.Count];
             using (Transaction tx = new Transaction(uidoc)) {
                 StringBuilder sb = new StringBuilder("init");
                 tx.Start("transaction");
-
                 //Get Point Coordinates
                 /*ElementCategoryFilter filter = new ElementCategoryFilter(BuiltInCategory.OST_ProjectBasePoint);
 
@@ -255,9 +277,17 @@ namespace RevSocketing {
                 if (ids != null && ids.Count > 0) {
                     foreach (ElementId eid in ids) {
                         Element e = uidoc.GetElement(eid);
+                        // Messing around with changing scale value..
+                        /*if (eid.IntegerValue == 160171) {
+                            Parameter p = e.get_Parameter(BuiltInParameter.FLOOR_HEIGHTABOVELEVEL_PARAM);
+                            Debug.WriteLine("Setting new param:" + p.AsInteger());
+                            p.Set(2);
+                            Debug.WriteLine("new param:" + p.AsInteger());
+                        }*/
                         // Experimental.. Trying to send mesh data over network. (Mostly works)
                         //meshSend.sendMeshData(e);
                         onPositionChangeEvent.idCoordinates[loopCount] = XYZ.Zero;
+                        onPositionChangeEvent.idRotations[loopCount] = 0;
                         if (e != null) {
                             ElementId neweid = e.Id;
                             Debug.WriteLine("Element ID:" + e.Id + " , " + e.UniqueId + " , " + neweid);
@@ -283,6 +313,7 @@ namespace RevSocketing {
                                 LocationPoint Lp = e.Location as LocationPoint;
                                 updatePosEvent.startingPos = Lp.Point;
                                 onPositionChangeEvent.idCoordinates[loopCount] = Lp.Point;
+                                onPositionChangeEvent.idRotations[loopCount] = Lp.Rotation;
                                 sb.Append("\n" + "ID:" + eid + "# " +e.Name + "# XYZ:" + Lp.Point + "#");
                             }
                             foreach (Parameter param in e.Parameters) {
@@ -368,28 +399,19 @@ namespace RevSocketing {
             return Result.Succeeded;
         }
 
-        public Result modifyObjectPosition(ExternalCommandData commandData, ElementId eid, string translation) {
+        public Result modifyObjectGMD(ExternalCommandData commandData, ElementId eid, string type, string translation) {
             Element e = uidoc.GetElement(eid);
-            string[] XYZSplit = translation.Split(',');
-            //XYZ xyztranslation = new XYZ(float.Parse(XYZSplit[0]), -(float.Parse(XYZSplit[2])), float.Parse(XYZSplit[1]));
-            XYZ xyztranslation = new XYZ(float.Parse(XYZSplit[0]), (float.Parse(XYZSplit[1])), float.Parse(XYZSplit[2]));
-
-            Debug.WriteLine("Setting new XYZ translation:" + xyztranslation.ToString());
-            updatePosEvent.xyztranslation = xyztranslation;
+            if (type == "POS") {
+                string[] XYZSplit = translation.Split(',');
+                XYZ xyztranslation = new XYZ(float.Parse(XYZSplit[0]), (float.Parse(XYZSplit[1])), float.Parse(XYZSplit[2]));
+                updatePosEvent.xyztranslation = xyztranslation;
+            } else if (type == "ROT") {
+                updatePosEvent.rotTranslation = double.Parse(translation);
+            }
             updatePosEvent.eid = eid;
             updatePosEvent.uidoc = uidoc;
+            updatePosEvent.eventType = type;
             upEvent.Raise();
-
-            // Moving the object is causing exception..
-            //e.Location.Move(xyztranslation);
-            /*using (Transaction tx = new Transaction(uidoc)) {
-                tx.Start("Transaction Name");
-                try {
-                    //e.Location.Move(xyztranslation);
-                    ElementTransformUtils.MoveElement(uidoc, eid, xyztranslation);
-                } catch { }
-                tx.Commit();
-            }*/
             return Result.Succeeded;
         }
 
@@ -402,65 +424,5 @@ namespace RevSocketing {
             sender.Shutdown(SocketShutdown.Both);
             sender.Close();
         }
-
-        /*public static void StartClient(string sendMsg, Document uidoc) {
-            byte[] bytes = new byte[1024];
-
-            try {
-                // Connect to a Remote server  
-                // Get Host IP Address that is used to establish a connection  
-                // In this case, we get one IP address of localhost that is IP : 127.0.0.1  
-                // If a host has multiple addresses, you will get a list of addresses  
-                IPHostEntry host = Dns.GetHostEntry("localhost");
-                IPAddress ipAddress = host.AddressList[0];
-                IPEndPoint remoteEP = new IPEndPoint(ipAddress, 11000);
-
-                // Create a TCP/IP  socket.    
-                Socket sender = new Socket(ipAddress.AddressFamily,
-                    SocketType.Stream, ProtocolType.Tcp);
-
-                // Connect the socket to the remote endpoint. Catch any errors.    
-                try {
-                    // Connect to Remote EndPoint  
-                    sender.Connect(remoteEP);
-
-                    Debug.WriteLine("Socket connected to {0}",
-                        sender.RemoteEndPoint.ToString());
-
-                    // Encode the data string into a byte array.    
-                    //byte[] msg = Encoding.ASCII.GetBytes("This is a test<EOF>");
-                    byte[] msg = Encoding.ASCII.GetBytes(sendMsg);
-
-                    // Send the data through the socket.    
-                    int bytesSent = sender.Send(msg);
-
-                    // Receive the response from the remote device.    
-                    int bytesRec = sender.Receive(bytes);
-                    StringBuilder sb = new StringBuilder(Encoding.ASCII.GetString(bytes, 0, bytesRec))
-                        .Replace("(", "")
-                        .Replace(")", "");
-                    string[] splitsb = sb.ToString().Split('#');
-                    Debug.WriteLine("ID="+splitsb[0]);
-                    Debug.WriteLine("COORDS="+splitsb[1]);
-                    modifyObjectPosition(uidoc, new ElementId(int.Parse(splitsb[0])), splitsb[1]);
-                    //Debug.WriteLine("Received:",
-                    //   Encoding.ASCII.GetString(bytes, 0, bytesRec));
-
-                    // Release the socket.    
-                    sender.Shutdown(SocketShutdown.Both);
-                    sender.Close();
-
-                } catch (ArgumentNullException ane) {
-                    Debug.WriteLine("ArgumentNullException : {0}", ane.ToString());
-                } catch (SocketException se) {
-                    Debug.WriteLine("SocketException : {0}", se.ToString());
-                } catch (Exception e) {
-                    Debug.WriteLine("Unexpected exception : {0}", e.ToString());
-                }
-
-            } catch (Exception e) {
-                Debug.WriteLine(e.ToString());
-            }
-        }*/
     }
 }

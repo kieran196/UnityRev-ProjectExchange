@@ -60,8 +60,11 @@ public class SocketTest : MonoBehaviour {
         if (newDataSet) {
             Debug.Log("New data has been set to true");
             newDataSet = false;
-            if (newData.StartsWith("GMD")) {
-                recievedGMD(newData);
+            if (newData.StartsWith("GMDP")) {
+                recievedGMD(newData, "POS");
+            }
+            if (newData.StartsWith("GMDR")) {
+                recievedGMD(newData, "ROT");
             }
             if (newData.StartsWith("init")) {
                 splitData(newData);
@@ -90,19 +93,22 @@ public class SocketTest : MonoBehaviour {
             stopServer();
         }  if (MsgTimer > MSGDELAY) {
             objMovedIndex = objectMoved();
+            objRotatedIndex = objectRotated();
             //Debug.Log("Obj moved:" + objMovedIndex);
             if (objMovedIndex != -1) {
                 MsgTimer = 0f;
                 RevAttributes objAttributes = revObjs[objMovedIndex].GetComponent<RevAttributes>();
-                //Vector3 offset = objAttributes.startingPosition - revObjsPos[objMovedIndex];
-                //sendGMDData(objAttributes.getId(), offset.ToString());
-                sendGMDData(objAttributes.getId(), MoveOffset.ToString());
-                //sendData(objAttributes.getId(), revObjsPos[objMovedIndex].ToString());
+                sendGMDData(objAttributes.getId(), "POS", MoveOffset.ToString());
+            } if (objRotatedIndex != -1) {
+                MsgTimer = 0f;
+                RevAttributes objAttributes = revObjs[objRotatedIndex].GetComponent<RevAttributes>();
+                sendGMDData(objAttributes.getId(), "ROT", RotOffset.ToString());
             }
         }
     }
 
     public int objMovedIndex = -1; //Last object moved index.
+    public int objRotatedIndex = -1;
     // Brief testing of my undo method and I found a bug. Basically if it sends two ERR messages, the software getst confused and doesn't revert it to the correct last position. Instead it remains in the same pos, and as a result creates a mismatch between the element in Revit and Unity. Can be easily reproduced by constantly dragging a GameObject to an invalid position.
     private void undoLastMove() {
         if (objMovedIndex != -1) {
@@ -113,15 +119,32 @@ public class SocketTest : MonoBehaviour {
 
     private bool lastCallFromRevitClient = false;
     private Vector3 MoveOffset;
+    private float RotOffset;
 
-    public int objectMoved() {
+    public int objectRotated() {
+        for (int i = 0; i < revObjs.Count; i++) {
+            if (revObjs[i].transform.localEulerAngles.y != revObjsRot[i]) {
+                Debug.Log("Obj rotated:" + revObjs[i]);
+                RotOffset = revObjs[i].transform.localEulerAngles.y - revObjsRot[i];
+                revObjsRot[i] = revObjs[i].transform.localEulerAngles.y;
+                if (lastCallFromRevitClient) {
+                    lastCallFromRevitClient = false;
+                    return -1;
+                }
+                return i;
+            }
+        }
+        return -1;
+    }
+
+        public int objectMoved() {
         for (int i=0; i<revObjs.Count; i++) {
             //Debug.Log("obj:" + revObjs[i].name + " | " + revObjsPos[i]);
             if (revObjs[i].transform.position != revObjsPos[i]) {
                 Debug.Log("Obj moved:" + revObjs[i]);
                 MoveOffset = revObjs[i].transform.position - revObjsPos[i];
                 revObjsPos[i] = revObjs[i].transform.position;
-                if (lastCallFromRevitClient) {
+                if (lastCallFromRevitClient || revObjs[i].transform.localEulerAngles.y != revObjsRot[i]) {
                     lastCallFromRevitClient = false;
                     return -1;
                 }
@@ -140,18 +163,24 @@ public class SocketTest : MonoBehaviour {
     private List<GameObject> revObjs = new List<GameObject>();
     [SerializeField]
     private List<Vector3> revObjsPos = new List<Vector3>();
+    private List<float> revObjsRot = new List<float>();
+    
     private String revId;
 
     private GameObject[] allObjects;
     public GameObject FindGameObjectId(string ID) {
         foreach (GameObject obj in allObjects) {
-            //Debug.Log(ID+" COMPARED ID:" + obj.GetComponent<RevAttributes>().getId());
+            Debug.Log(ID+" COMPARED ID:" + obj.GetComponent<RevAttributes>().getId());
             if (obj.GetComponent<RevAttributes>().getId().Equals(ID)) {
-                obj.GetComponent<Renderer>().material.color = Color.green;
+                //obj.GetComponent<Renderer>().material.color = Color.green;
                 return obj;
             }
         } // Not found..
         return null;
+    }
+    private readonly float ROT_CONSTANT = 57.295F;
+    public float transformRevitRot(float revitRot) {
+        return revitRot * ROT_CONSTANT;
     }
 
     public Vector3 transformRevitCoords(Vector3 revitCoords) {
@@ -166,13 +195,15 @@ public class SocketTest : MonoBehaviour {
         handler.Send(msg);
     }
 
-    public void sendGMDData(string revId, string revObjPos) {
-        String sendData = "GMD" + revId + "#" + revObjPos;
-        Debug.Log("Sending Data:" + sendData);
+    public void sendGMDData(string revId, string type, string newGMDValue) {
+        String sendData = "";
+        if (type == "POS") {
+            sendData = "GMDP" + revId + "#" + newGMDValue;
+        } else if (type == "ROT") {
+            sendData = "GMDR" + revId + "#" + newGMDValue;
+        }
         byte[] msg = Encoding.ASCII.GetBytes(sendData);
         handler.Send(msg);
-        //handler.Shutdown(SocketShutdown.Both);
-        //handler.Close();
     }
 
     public void splitData(String data) {
@@ -235,6 +266,7 @@ public class SocketTest : MonoBehaviour {
             }
             //newData = "";
             revObjsPos.Add(revObj.transform.position);
+            revObjsRot.Add(revObj.transform.localEulerAngles.y);
         //}
     }
 
@@ -273,21 +305,26 @@ public class SocketTest : MonoBehaviour {
         }
     }
 
-    void recievedGMD(String serverMessage) {
+    void recievedGMD(String serverMessage, String GMD_Type) {
         lastCallFromRevitClient = true;
-        serverMessage = serverMessage.Substring(3);
+        serverMessage = serverMessage.Substring(4);
         StringBuilder sb = new StringBuilder(serverMessage).Replace("(", "").Replace(")", "");
         String[] splitsb = sb.ToString().Split('#');
         Debug.Log("ID=" + splitsb[0]);
-        Debug.Log("COORDS=" + splitsb[1]);
-        // Find ID
+        Debug.Log("VAL=" + splitsb[1]);
         GameObject revObj = FindGameObjectId(splitsb[0]);
-        // Modify Pos
-        String[] xyz = splitsb[1].Split(',');
-        Vector3 rawRevitCoords = new Vector3(float.Parse(xyz[0]), float.Parse(xyz[1]), float.Parse(xyz[2]));
-        Vector3 coordinateTransform = transformRevitCoords(rawRevitCoords);
-        Debug.Log("coordChange:" + coordinateTransform);
-        revObj.transform.position += coordinateTransform;
+        if (GMD_Type == "POS") {
+            String[] xyz = splitsb[1].Split(',');
+            Vector3 rawRevitCoords = new Vector3(float.Parse(xyz[0]), float.Parse(xyz[1]), float.Parse(xyz[2]));
+            Vector3 coordinateTransform = transformRevitCoords(rawRevitCoords);
+            //Debug.Log("coordChange:" + coordinateTransform);
+            revObj.transform.position += coordinateTransform;
+        } else if (GMD_Type == "ROT") {
+            float rawRevitRot = float.Parse(splitsb[1]);
+            float rotationTransform = transformRevitRot(rawRevitRot);
+            Debug.Log(revObj.transform.name +" | Rot change:" + rotationTransform);
+            revObj.transform.localEulerAngles -= new Vector3(0f, rotationTransform, 0f);
+        }
     }
 
     Socket listener;

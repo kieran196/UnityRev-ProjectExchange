@@ -4223,7 +4223,7 @@ GameObject:
   - component: {fileID: 988356335}
   m_Layer: 0
   m_Name: Basic Wall:Generic - 200mm:347460
-  m_TagString: RevitObj
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4791,7 +4791,7 @@ Transform:
   m_GameObject: {fileID: 1055091476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 3.048, y: 3.048, z: 3.048}
   m_Children:
   - {fileID: 1546077354}
   m_Father: {fileID: 0}
@@ -4835,6 +4835,8 @@ MonoBehaviour:
   newData: 'Data:
 
     36" x 84"# XYZ:(32.401529436, 12.851501581, 0.000000000) #ID:208f0560-9995-41cf-8f9f-a46e5b5c728f-000573a5'
+  objMovedIndex: -1
+  objRotatedIndex: -1
   revObjs: []
   revObjsPos: []
   meshCreator: {fileID: 537073535}
@@ -8912,7 +8914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID_TAG: 
+  ID_TAG: 160170
   UNIQUE_ID: 160170
   properties: []
   startingPosition: {x: 0, y: 0, z: 0}

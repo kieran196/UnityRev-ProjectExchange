@@ -22,6 +22,7 @@ namespace RevSocketing {
             using (Transaction tx = new Transaction(uidoc)) {
                 tx.Start("On Data Change Instance");
                 Debug.WriteLine("New Val:" + newValue);
+
                 param.Set(newValue);
                 //Debug.WriteLine("Param found has val:" + param);
                 tx.Commit();

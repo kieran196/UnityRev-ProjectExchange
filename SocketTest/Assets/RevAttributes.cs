@@ -54,7 +54,7 @@ public class RevAttributes : MonoBehaviour {
     }*/
 
     void Awake() {
-        Debug.Log(this.transform.name + " | " +GetComponent<MeshFilter>().mesh.subMeshCount);
+        //Debug.Log(this.transform.name + " | " +GetComponent<MeshFilter>().mesh.subMeshCount);
         mainServer = FindObjectOfType<SocketTest>();
         /*assignPropertiesCapacity(2);
         addProperty(0, "Bob");
@@ -110,6 +110,9 @@ public class RevAttributes : MonoBehaviour {
         return -1;
     }
     void Update() {
+        //this.transform.Rotate(Vector3.right, 1, Space.World);
+        //transform.Rotate(0f, 0f, 1f, Space.World);
+
         int index = onDataChange();
         if (index != -1) {
             mainServer.sendBIMData(ID_TAG, properties[index].key, properties[index].value);

@@ -749,6 +749,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AttributeLinker.cs" />
     <Compile Include="Assets\RevAttributes.cs" />
     <Compile Include="Assets\SocketTest.cs" />
     <Compile Include="Assets\Tridify\DemoAssets\FirstPersonController\CrossPlatformInputManager.cs" />
