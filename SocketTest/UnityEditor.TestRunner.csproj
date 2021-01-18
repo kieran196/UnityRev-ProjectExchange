@@ -789,6 +789,8 @@
     <Compile Include="Packages\com.unity.test-framework\UnityEditor.TestRunner\UnityTestProtocol\UtpMessageReporter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\IFCImporter\IFCDefines\IFC2X3-Settings.xml" />
+    <None Include="Assets\IFCImporter\IFCDefines\IFC4-Settings.xml" />
     <None Include="Assets\Tridify\DemoAssets\FirstPersonController\README.txt" />
     <None Include="Assets\Tridify\DemoAssets\Materials\TridifySample_MaterialMapping.txt" />
     <None Include="Assets\Tridify\README.txt" />

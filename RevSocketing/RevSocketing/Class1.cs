@@ -73,6 +73,8 @@ namespace RevSocketing {
                 sendData = "GMDP" + eleId + "#" + newGMDValue;
             } else if (type == "ROT") {
                 sendData = "GMDR" + eleId + "#" + newGMDValue;
+            } else if (type == "SCALEM") {
+                sendData = "GMDS" + eleId + "#" + newGMDValue;
             }
             sendMsgToServer(sendData);
         }
@@ -98,6 +100,17 @@ namespace RevSocketing {
                 while (true) {
                     chPosEvent.Raise();
                 }
+        }
+
+        private void updateElementColor(Document doc, ElementId id, int r, int g, int b) {
+            Color color = new Color((byte)r, (byte)g, (byte)b);
+            OverrideGraphicSettings ogs = new OverrideGraphicSettings();
+            ogs.SetProjectionLineColor(color);
+            ogs.SetSurfaceForegroundPatternColor(color);
+            ogs.SetSurfaceBackgroundPatternColor(color);
+
+            doc.ActiveView.SetElementOverrides(id, ogs);
+            Debug.WriteLine("Updated doors color.");
         }
 
         private void initializeMainLoop() {
@@ -167,12 +180,21 @@ namespace RevSocketing {
                                 Debug.WriteLine("KEY=" + splitsb[1]);
                                 Debug.WriteLine("VALUE=" + splitsb[2]);
                                 Result RES = modifyMetaData(new ElementId(int.Parse(splitsb[0])), splitsb[1], splitsb[2]);
+                            } else if (serverMessage.StartsWith("SMD")) {
+                                sendMeshDataToServer();
                             }
                         }
                     }
                 }
             } catch (SocketException socketException) {
                 Debug.WriteLine("Socket exception: " + socketException);
+            }
+        }
+
+        private void sendMeshDataToServer() {
+            foreach (ElementId id in ids) {
+                Element e = uidoc.GetElement(id);
+                meshSend.sendMeshData(e);
             }
         }
 
@@ -228,6 +250,7 @@ namespace RevSocketing {
         private ExternalEvent obcEvent = null; // On BIM change Event
         private ExternalEvent chPosEvent = null; // Update on Pos change Event
         public List<ElementId> ids;
+        private meshSender meshSend;
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements) {
             Debug.WriteLine("Execute() called");
             onPositionChangeEvent.classInstance = this;
@@ -235,9 +258,10 @@ namespace RevSocketing {
             updatePosEvent.classInstance = this;
             UIApplication uiapp = commandData.Application;
             uidoc = uiapp.ActiveUIDocument.Document;
+            onPositionChangeEvent.doc = uidoc;
             Application app = uiapp.Application;
             //Creating a handler.. (Uncomment below)
-            meshSender meshSend = new meshSender();
+            meshSend = new meshSender();
             updatePosEvent posHandler = new updatePosEvent();
             onDataChangeEvent dataHandler = new onDataChangeEvent();
             onPositionChangeEvent posChangeHandler = new onPositionChangeEvent();
@@ -246,12 +270,16 @@ namespace RevSocketing {
             chPosEvent = ExternalEvent.Create(posChangeHandler);
             app.DocumentChanged += new EventHandler<DocumentChangedEventArgs>(onElementCreated.OnNewElementCreated);
             warningEvents.updatePosHandler = posHandler;
+
             //ExternalEventApp.
             ConnectToTcpServer(commandData);
             //IList<Reference> pickedObjs = uiapp.ActiveUIDocument.Selection.PickObjects(ObjectType.Element, "Select elements");
             //ids = (from Reference r in pickedObjs select r.ElementId).ToList();
             ids = getAllElementsInDoc(uidoc);
             onPositionChangeEvent.idCoordinates = new XYZ[ids.Count];
+            onPositionChangeEvent.idBoundingBoxMax = new XYZ[ids.Count];
+            onPositionChangeEvent.idBoundingBoxMaxOriginal = new XYZ[ids.Count];
+            onPositionChangeEvent.idBoundingBoxMin = new XYZ[ids.Count];
             onPositionChangeEvent.idRotations = new double[ids.Count];
             using (Transaction tx = new Transaction(uidoc)) {
                 StringBuilder sb = new StringBuilder("init");
@@ -277,6 +305,26 @@ namespace RevSocketing {
                 if (ids != null && ids.Count > 0) {
                     foreach (ElementId eid in ids) {
                         Element e = uidoc.GetElement(eid);
+                        /*if (eid.IntegerValue == 160200) {
+                            //Trigger
+                            onParamChangedEvent paramChangedEvent = new onParamChangedEvent();
+                            UpdaterRegistry.RegisterUpdater(paramChangedEvent, true);
+                            ElementClassFilter filter = new ElementClassFilter(typeof(Parameter));
+                            UpdaterRegistry.AddTrigger(paramChangedEvent.GetUpdaterId(), filter, Element.GetChangeTypeParameter(eid));
+                        }*/
+                        /*if (eid.IntegerValue == 160200) {
+                            updateElementColor(uidoc, eid, 255, 255, 255);
+                            Category eleCat = e.Category;
+                            CategoryNameMap eleSubCats = eleCat.SubCategories;
+                            eleSubCats.get_Item("Architrave").Material.Color = new Color((byte)255, (byte)255, (byte)255);
+                        }*/
+                        /*if (eid.IntegerValue == 160171) {
+                            BoundingBoxXYZ bbox = e.get_BoundingBox(uidoc.ActiveView);
+                            XYZ bboxMax = bbox.Max;
+                            XYZ bboxMin = bbox.Min;
+                            Debug.WriteLine("Min:" + bboxMin + " | Max:" + bboxMax);
+
+                        }*/
                         // Messing around with changing scale value..
                         /*if (eid.IntegerValue == 160171) {
                             Parameter p = e.get_Parameter(BuiltInParameter.FLOOR_HEIGHTABOVELEVEL_PARAM);
@@ -287,11 +335,14 @@ namespace RevSocketing {
                         // Experimental.. Trying to send mesh data over network. (Mostly works)
                         //meshSend.sendMeshData(e);
                         onPositionChangeEvent.idCoordinates[loopCount] = XYZ.Zero;
+                        onPositionChangeEvent.idBoundingBoxMaxOriginal[loopCount] = XYZ.Zero;
+                        onPositionChangeEvent.idBoundingBoxMax[loopCount] = XYZ.Zero;
+                        onPositionChangeEvent.idBoundingBoxMin[loopCount] = XYZ.Zero;
                         onPositionChangeEvent.idRotations[loopCount] = 0;
                         if (e != null) {
                             ElementId neweid = e.Id;
                             Debug.WriteLine("Element ID:" + e.Id + " , " + e.UniqueId + " , " + neweid);
-                            GeometryElement geoEle = e.get_Geometry(new Options());
+                            /*GeometryElement geoEle = e.get_Geometry(new Options());
                             if (geoEle != null) {
                                 foreach (GeometryObject geoObject in geoEle)
                                 {
@@ -306,6 +357,12 @@ namespace RevSocketing {
                                 {
                                     Debug.WriteLine("BBID:" + eid + " | " + box.Transform.Origin);
                                 }
+                            }*/
+                            BoundingBoxXYZ bbox = e.get_BoundingBox(uidoc.ActiveView);
+                            if (bbox != null) {
+                                onPositionChangeEvent.idBoundingBoxMaxOriginal[loopCount] = bbox.Max;
+                                onPositionChangeEvent.idBoundingBoxMax[loopCount] = bbox.Max;
+                                onPositionChangeEvent.idBoundingBoxMax[loopCount] = bbox.Min;
                             }
                             Autodesk.Revit.DB.LocationPoint positionPoint = e.Location as Autodesk.Revit.DB.LocationPoint;
                             if (positionPoint != null) { // Name -> XYZ Coords -> ID

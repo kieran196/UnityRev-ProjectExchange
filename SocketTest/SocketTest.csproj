@@ -250,6 +250,9 @@
     <Reference Include="Managed/UnityEditor">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2019.3.13f1\Editor\Data\Managed/UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="IfcEngineWrapper">
+      <HintPath>Assets/Plugins/IfcEngineWrapper.dll</HintPath>
+    </Reference>
     <Reference Include="Clipper">
       <HintPath>Assets/Tridify/Plugins/Clipper.dll</HintPath>
     </Reference>
@@ -750,6 +753,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\AttributeLinker.cs" />
+    <Compile Include="Assets\CielaSpike\Thread Ninja\Example\ExampleScript.cs" />
+    <Compile Include="Assets\CielaSpike\Thread Ninja\Ninja.cs" />
+    <Compile Include="Assets\CielaSpike\Thread Ninja\Task.cs" />
+    <Compile Include="Assets\CielaSpike\Thread Ninja\TaskState.cs" />
+    <Compile Include="Assets\CielaSpike\Thread Ninja\ThreadNinjaMonoBehaviourExtensions.cs" />
+    <Compile Include="Assets\ElementMesh.cs" />
+    <Compile Include="Assets\IFCImporter\ScCommon\KeyboardCameraControl.cs" />
+    <Compile Include="Assets\IFCImporter\ScCommon\MouseCameraControl.cs" />
+    <Compile Include="Assets\IFCImporter\ScIFC\IFCVariables.cs" />
+    <Compile Include="Assets\IFCImporter\ScIFC\ImportIFC.cs" />
+    <Compile Include="Assets\IFCImporter\ScIFC\Manager.cs" />
+    <Compile Include="Assets\IFCImporter\ScIFC\MaterialAssignment.cs" />
+    <Compile Include="Assets\IFCImporter\ScIFC\SerializeMesh.cs" />
+    <Compile Include="Assets\IFCImporter\ScIFC\Util\IFCMaterialAssoc.cs" />
     <Compile Include="Assets\RevAttributes.cs" />
     <Compile Include="Assets\SocketTest.cs" />
     <Compile Include="Assets\Tridify\DemoAssets\FirstPersonController\CrossPlatformInputManager.cs" />
@@ -762,6 +779,8 @@
     <Compile Include="Assets\meshCreation.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\IFCImporter\IFCDefines\IFC2X3-Settings.xml" />
+    <None Include="Assets\IFCImporter\IFCDefines\IFC4-Settings.xml" />
     <None Include="Assets\Tridify\DemoAssets\FirstPersonController\README.txt" />
     <None Include="Assets\Tridify\DemoAssets\Materials\TridifySample_MaterialMapping.txt" />
     <None Include="Assets\Tridify\README.txt" />

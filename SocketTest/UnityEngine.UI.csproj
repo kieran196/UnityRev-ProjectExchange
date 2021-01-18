@@ -265,6 +265,9 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="IfcEngineWrapper">
+      <HintPath>Assets/Plugins/IfcEngineWrapper.dll</HintPath>
+    </Reference>
     <Reference Include="Clipper">
       <HintPath>Assets/Tridify/Plugins/Clipper.dll</HintPath>
     </Reference>
@@ -741,6 +744,8 @@
     <Compile Include="Packages\com.unity.ugui\Runtime\UI\Core\VertexModifiers\Shadow.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\IFCImporter\IFCDefines\IFC2X3-Settings.xml" />
+    <None Include="Assets\IFCImporter\IFCDefines\IFC4-Settings.xml" />
     <None Include="Assets\Tridify\DemoAssets\FirstPersonController\README.txt" />
     <None Include="Assets\Tridify\DemoAssets\Materials\TridifySample_MaterialMapping.txt" />
     <None Include="Assets\Tridify\README.txt" />

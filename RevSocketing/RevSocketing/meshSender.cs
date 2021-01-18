@@ -18,7 +18,7 @@ namespace RevSocketing
         {
             string verts = "";
             foreach (XYZ vertice in vertices) {
-                Debug.WriteLine(vertice);
+                //Debug.WriteLine(vertice);
                 float x = (float)Math.Round(vertice.X, 2);
                 float y = (float)Math.Round(vertice.Y, 2);
                 float z = (float)Math.Round(vertice.Z, 2);
@@ -86,11 +86,26 @@ namespace RevSocketing
                             vertices += getVertices(mesh.Vertices);
                         }
                     }
+                } else {
+                    Debug.WriteLine("Element:" + e.Name + " does not have a GeometryInstance");
+                    Solid solid = geoObject as Solid;
+                    if (solid != null) {
+                        foreach (Face face in solid.Faces) {
+                            Mesh mesh = face.Triangulate();
+                            //getVertices(mesh.Vertices);
+                            //getUVs(face, mesh.Vertices);
+                            tris += getTris(face, mesh);
+                            vertices += getVertices(mesh.Vertices);
+                        }
+                    } else {
+                        Debug.WriteLine("Solid = null");
+                    }
                 }
             }
             classInstance.sendMeshData(e.Id.ToString(), tris, "tris");
             System.Threading.Thread.Sleep(100);
             classInstance.sendMeshData(e.Id.ToString(), vertices, "verts");
+            System.Threading.Thread.Sleep(100);
         }
 
     }

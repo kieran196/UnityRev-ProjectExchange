@@ -1777,13 +1777,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c684d3145a56c4abfb896bdc16fe64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newVertices: []
+  elementMeshArr: []
   newUV: []
   meshNormals: []
-  newTriangles: 
   createMesh: 0
+  createAllMeshes: 0
   objToClone: {fileID: 1272895612}
   reader: {fileID: 537073538}
+  clonedTris: 
+  actualTris: 
+  testedTris: 
+  index: 0
 --- !u!33 &537073536
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1810,7 +1814,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2178,9 +2182,10 @@ GameObject:
   - component: {fileID: 584568130}
   - component: {fileID: 584568129}
   - component: {fileID: 584568128}
+  - component: {fileID: 584568139}
   m_Layer: 0
   m_Name: Basic Wall:Generic - 200mm:347656
-  m_TagString: Untagged
+  m_TagString: RevitObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2442,6 +2447,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584568126}
   m_Mesh: {fileID: 443590569495759098, guid: 04b890f148a732b46816b3fd3ea65928, type: 3}
+--- !u!114 &584568139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584568126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &638612758
 GameObject:
   m_ObjectHideFlags: 0
@@ -4223,7 +4244,7 @@ GameObject:
   - component: {fileID: 988356335}
   m_Layer: 0
   m_Name: Basic Wall:Generic - 200mm:347460
-  m_TagString: Untagged
+  m_TagString: RevitObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4521,9 +4542,10 @@ GameObject:
   - component: {fileID: 1019452911}
   - component: {fileID: 1019452910}
   - component: {fileID: 1019452909}
+  - component: {fileID: 1019452919}
   m_Layer: 0
   m_Name: Compound Ceiling:Plain:354587
-  m_TagString: Untagged
+  m_TagString: RevitObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4766,6 +4788,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019452907}
   m_Mesh: {fileID: 8216479989272582650, guid: db8abc09487181e4ebd6a4335ba551a5, type: 3}
+--- !u!114 &1019452919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019452907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1055091476
 GameObject:
   m_ObjectHideFlags: 0
@@ -4775,6 +4813,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1055091477}
+  - component: {fileID: 1055091478}
   m_Layer: 0
   m_Name: FoyerProj 7412
   m_TagString: Untagged
@@ -4797,6 +4836,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1055091478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055091476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb0bf33119331941aebdbde5e013050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linkScriptsBool: 0
+  unlinkScriptsBool: 0
 --- !u!1 &1114076287
 GameObject:
   m_ObjectHideFlags: 0
@@ -4840,6 +4893,7 @@ MonoBehaviour:
   revObjs: []
   revObjsPos: []
   meshCreator: {fileID: 537073535}
+  receiveMeshDataCommand: 0
 --- !u!4 &1114076289
 Transform:
   m_ObjectHideFlags: 0
@@ -4871,9 +4925,10 @@ GameObject:
   - component: {fileID: 1134338978}
   - component: {fileID: 1134338977}
   - component: {fileID: 1134338976}
+  - component: {fileID: 1134338984}
   m_Layer: 0
   m_Name: Assembled Stair:Stair:349153 Stringer 2
-  m_TagString: Untagged
+  m_TagString: RevitObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5067,6 +5122,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134338974}
   m_Mesh: {fileID: -5283378837702301582, guid: 2a10dd512fef48048b7d5fe0daade01b, type: 3}
+--- !u!114 &1134338984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134338974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1165237027
 GameObject:
   m_ObjectHideFlags: 0
@@ -5085,9 +5156,10 @@ GameObject:
   - component: {fileID: 1165237031}
   - component: {fileID: 1165237030}
   - component: {fileID: 1165237029}
+  - component: {fileID: 1165237038}
   m_Layer: 0
   m_Name: Wall Foundation:Bearing Footing - 900 x 300:347831
-  m_TagString: Untagged
+  m_TagString: RevitObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5294,6 +5366,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165237027}
   m_Mesh: {fileID: -3713950020688781830, guid: 7f911ec63cd026344813d1d26490abaf, type: 3}
+--- !u!114 &1165237038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165237027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1178160810
 GameObject:
   m_ObjectHideFlags: 0
@@ -6053,9 +6141,10 @@ GameObject:
   - component: {fileID: 1298636834}
   - component: {fileID: 1298636833}
   - component: {fileID: 1298636832}
+  - component: {fileID: 1298636843}
   m_Layer: 0
   m_Name: Floor:Generic 150mm:346571
-  m_TagString: Untagged
+  m_TagString: RevitObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6319,6 +6408,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1298636830}
   m_Mesh: {fileID: -3845403918298745707, guid: 03d9cdb6789b36f49b03985326a9488c, type: 3}
+--- !u!114 &1298636843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298636830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1378709516
 GameObject:
   m_ObjectHideFlags: 0
@@ -7421,9 +7526,10 @@ GameObject:
   - component: {fileID: 1464763579}
   - component: {fileID: 1464763578}
   - component: {fileID: 1464763577}
+  - component: {fileID: 1464763585}
   m_Layer: 0
   m_Name: Assembled Stair:Stair:349153 Stringer 1
-  m_TagString: Untagged
+  m_TagString: RevitObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7617,6 +7723,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464763575}
   m_Mesh: {fileID: -6634595272350966202, guid: 2a10dd512fef48048b7d5fe0daade01b, type: 3}
+--- !u!114 &1464763585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464763575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1486718005
 GameObject:
   m_ObjectHideFlags: 0
@@ -8406,9 +8528,10 @@ GameObject:
   - component: {fileID: 1706798459}
   - component: {fileID: 1706798458}
   - component: {fileID: 1706798457}
+  - component: {fileID: 1706798468}
   m_Layer: 0
   m_Name: Basic Wall:Generic - 200mm:350060
-  m_TagString: Untagged
+  m_TagString: RevitObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8670,6 +8793,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706798455}
   m_Mesh: {fileID: -4922172237480400144, guid: 04b890f148a732b46816b3fd3ea65928, type: 3}
+--- !u!114 &1706798468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706798455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1739132212
 GameObject:
   m_ObjectHideFlags: 0
@@ -9668,9 +9807,10 @@ GameObject:
   - component: {fileID: 1831856441}
   - component: {fileID: 1831856440}
   - component: {fileID: 1831856439}
+  - component: {fileID: 1831856450}
   m_Layer: 0
   m_Name: Basic Wall:Generic - 200mm:350286
-  m_TagString: Untagged
+  m_TagString: RevitObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9933,6 +10073,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831856437}
   m_Mesh: {fileID: -1488414408155597245, guid: 04b890f148a732b46816b3fd3ea65928, type: 3}
+--- !u!114 &1831856450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831856437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 160199
+  UNIQUE_ID: 160199
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1834122063
 GameObject:
   m_ObjectHideFlags: 0
@@ -10357,9 +10513,10 @@ GameObject:
   - component: {fileID: 1944781407}
   - component: {fileID: 1944781406}
   - component: {fileID: 1944781405}
+  - component: {fileID: 1944781416}
   m_Layer: 0
   m_Name: Basic Wall:Generic - 200mm:347943
-  m_TagString: Untagged
+  m_TagString: RevitObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10621,6 +10778,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944781403}
   m_Mesh: {fileID: -6142513332612135618, guid: 04b890f148a732b46816b3fd3ea65928, type: 3}
+--- !u!114 &1944781416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944781403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 
+  UNIQUE_ID: 
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1958543076
 GameObject:
   m_ObjectHideFlags: 0
@@ -10641,9 +10814,10 @@ GameObject:
   - component: {fileID: 1958543080}
   - component: {fileID: 1958543079}
   - component: {fileID: 1958543078}
+  - component: {fileID: 1958543089}
   m_Layer: 0
   m_Name: Basic Wall:Generic - 200mm:367037
-  m_TagString: Untagged
+  m_TagString: RevitObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10905,6 +11079,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958543076}
   m_Mesh: {fileID: 2310208532954226970, guid: 04b890f148a732b46816b3fd3ea65928, type: 3}
+--- !u!114 &1958543089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958543076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225564232f30ae246b9860a7f10cd127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID_TAG: 160201
+  UNIQUE_ID: 160201
+  properties: []
+  startingPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1959165153
 GameObject:
   m_ObjectHideFlags: 0

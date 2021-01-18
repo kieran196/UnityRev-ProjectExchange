@@ -11,23 +11,27 @@ using Autodesk.Revit.UI;
 namespace RevSocketing {
 
     public class onPositionChangeEvent : IExternalEventHandler {
-
-        public static XYZ[] idCoordinates;
+        public static Document doc;
+        public static XYZ[] idCoordinates, idBoundingBoxMaxOriginal, idBoundingBoxMax, idBoundingBoxMin;
         public static double[] idRotations;
         public static Class1 classInstance;
         public static bool lastCallFromUnityClient = false;
-        private XYZ oldCoords;
+        private XYZ oldCoords, oldBBMax, oldBBMin, oldScale;
         private double oldRot;
         public void Execute(UIApplication app) {
             using (Transaction tx = new Transaction(classInstance.uidoc)) {
                 tx.Start("On Position Change Instance");
                 Element e = onIdPositionChanged(classInstance.ids);
                 Element e1 = onIdRotationChanged(classInstance.ids);
+                Element e2 = onIdScaleChanged(classInstance.ids);
                 if (e != null) {
                     sendData(e, "POS");
                 }
                 if (e1 != null) {
                     sendData(e1, "ROT");
+                }
+                if (e2 != null && !vectorIsOne(oldScale)) {
+                    sendData(e2, "SCALEM");
                 }
                 //tx.Commit();
             }
@@ -41,6 +45,8 @@ namespace RevSocketing {
             } if (type == "ROT") {
                 double rot = locationPoint.Rotation - oldRot;
                 classInstance.sendGMDData(e.Id.ToString(), type, rot.ToString());
+            } if (type == "SCALEM") {
+                classInstance.sendGMDData(e.Id.ToString(), type, oldScale.ToString());
             }
         }
 
@@ -56,6 +62,43 @@ namespace RevSocketing {
                                 Debug.WriteLine("Old Rot:" + idRotations[i] + " | New Rot:" + locationPoint.Rotation);
                                 oldRot = idRotations[i];
                                 idRotations[i] = locationPoint.Rotation;
+                                if (lastCallFromUnityClient) {
+                                    lastCallFromUnityClient = false;
+                                    return null;
+                                }
+                                return e;
+                            }
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
+        // Some aspects of the scale is working (ie changing the height of an element. However, some are still not implemented yet)
+        // Need to factor in the BoundingBoxXYZ Min value.
+        // Need to play around more using the Revit Lookup tool to see if I can work this out.
+        // Scaling (for now) is also only going from Revit -> Unity.
+
+        public Element onIdScaleChanged(List<ElementId> ids) {
+            if (ids != null && idCoordinates != null) {
+                for (int i = 0; i < ids.Count; i++) {
+                    Element e = classInstance.uidoc.GetElement(ids[i]);
+                    if (e != null && e.Location != null) {
+                        BoundingBoxXYZ bbox = e.get_BoundingBox(doc.ActiveView);
+                        if (bbox != null) {
+                            XYZ bboxMax = bbox.Max;
+                            //XYZ bboxMin = bbox.Min;
+                            if (!vectorIsEqual(idBoundingBoxMax[i], bboxMax)) {
+                                Debug.WriteLine("Old BBMax:" + idBoundingBoxMax[i] + " | New BBMax:" + bboxMax);
+                                oldBBMax = idBoundingBoxMax[i];
+                                idBoundingBoxMax[i] = bboxMax;
+                                double scaleX = (idBoundingBoxMax[i].X / idBoundingBoxMaxOriginal[i].X);
+                                double scaleY = (idBoundingBoxMax[i].Y / idBoundingBoxMaxOriginal[i].Y);
+                                double scaleZ = (idBoundingBoxMax[i].Z / idBoundingBoxMaxOriginal[i].Z);
+                                string scale = "X:" + scaleX + " Y:" + scaleY + " Z:" + scaleZ;
+                                oldScale = new XYZ(scaleX, scaleY, scaleZ);
+                                Debug.WriteLine("Scale:" + scale);
                                 if (lastCallFromUnityClient) {
                                     lastCallFromUnityClient = false;
                                     return null;
@@ -95,6 +138,13 @@ namespace RevSocketing {
                 return null;
             }
             return null;
+        }
+
+        public bool vectorIsOne(XYZ xyz) {
+            if (xyz.X == 1 && xyz.Y == 1 && xyz.Z == 1) {
+                return true;
+            }
+            return false;
         }
 
         public bool vectorIsEqual(XYZ xyz1, XYZ xyz2) {

@@ -43,28 +43,33 @@ public class SocketTest : MonoBehaviour {
         private bool initialDataRecieved = false;
 
     void Update() {
+        if (receiveMeshDataCommand) {
+            sendCmd("SMD");
+            receiveMeshDataCommand = false;
+        }
         MsgTimer += Time.deltaTime;
         /*if (revObjTest == null) { // If the object is null find it..
             revObjTest = GameObject.FindGameObjectWithTag("RevitObj");
         }*/
         // A change of data has occured?
         //Debug.Log("New data set:" + newDataSet);
-        if (newData.StartsWith("MDT")) {
-            recievedMDT(newData);
-            return;
-        }
-        if (newData.StartsWith("MDV")) {
-            recievedMDV(newData);
-            return;
-        }
         if (newDataSet) {
             Debug.Log("New data has been set to true");
             newDataSet = false;
+            if (newData.StartsWith("MDT")) {
+                recievedMDT(newData);
+            }
+            if (newData.StartsWith("MDV")) {
+                recievedMDV(newData);
+            }
             if (newData.StartsWith("GMDP")) {
                 recievedGMD(newData, "POS");
             }
             if (newData.StartsWith("GMDR")) {
                 recievedGMD(newData, "ROT");
+            }
+            if (newData.StartsWith("GMDS")) {
+                recievedGMD(newData, "SCALE");
             }
             if (newData.StartsWith("init")) {
                 splitData(newData);
@@ -94,6 +99,7 @@ public class SocketTest : MonoBehaviour {
         }  if (MsgTimer > MSGDELAY) {
             objMovedIndex = objectMoved();
             objRotatedIndex = objectRotated();
+            objScaleChangedIndex = objectScaleChanged();
             //Debug.Log("Obj moved:" + objMovedIndex);
             if (objMovedIndex != -1) {
                 MsgTimer = 0f;
@@ -103,12 +109,15 @@ public class SocketTest : MonoBehaviour {
                 MsgTimer = 0f;
                 RevAttributes objAttributes = revObjs[objRotatedIndex].GetComponent<RevAttributes>();
                 sendGMDData(objAttributes.getId(), "ROT", RotOffset.ToString());
+            } if (objScaleChangedIndex != -1) {
+                RevAttributes objAttributes = revObjs[objScaleChangedIndex].GetComponent<RevAttributes>();
             }
         }
     }
 
     public int objMovedIndex = -1; //Last object moved index.
     public int objRotatedIndex = -1;
+    public int objScaleChangedIndex = -1;
     // Brief testing of my undo method and I found a bug. Basically if it sends two ERR messages, the software getst confused and doesn't revert it to the correct last position. Instead it remains in the same pos, and as a result creates a mismatch between the element in Revit and Unity. Can be easily reproduced by constantly dragging a GameObject to an invalid position.
     private void undoLastMove() {
         if (objMovedIndex != -1) {
@@ -119,6 +128,7 @@ public class SocketTest : MonoBehaviour {
 
     private bool lastCallFromRevitClient = false;
     private Vector3 MoveOffset;
+    private Vector3 ScaleOffset;
     private float RotOffset;
 
     public int objectRotated() {
@@ -137,7 +147,26 @@ public class SocketTest : MonoBehaviour {
         return -1;
     }
 
-        public int objectMoved() {
+    public int objectScaleChanged() {
+        for (int i = 0; i < revObjs.Count; i++) {
+            if (revObjs[i].transform.localScale != revObjsScale[i]) {
+                float scaleX = revObjs[i].transform.localScale.x / revObjsScaleOriginal[i].x;
+                float scaleY = revObjs[i].transform.localScale.y / revObjsScaleOriginal[i].y;
+                float scaleZ = revObjs[i].transform.localScale.z / revObjsScaleOriginal[i].z;
+                ScaleOffset = new Vector3(scaleX, scaleY, scaleZ);
+                Debug.Log("Obj scale changed:" + revObjs[i].name + " | " + ScaleOffset);
+                revObjsScale[i] = revObjs[i].transform.localScale;
+                if (lastCallFromRevitClient) {
+                    lastCallFromRevitClient = false;
+                    return -1;
+                }
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int objectMoved() {
         for (int i=0; i<revObjs.Count; i++) {
             //Debug.Log("obj:" + revObjs[i].name + " | " + revObjsPos[i]);
             if (revObjs[i].transform.position != revObjsPos[i]) {
@@ -163,6 +192,8 @@ public class SocketTest : MonoBehaviour {
     private List<GameObject> revObjs = new List<GameObject>();
     [SerializeField]
     private List<Vector3> revObjsPos = new List<Vector3>();
+    private List<Vector3> revObjsScale = new List<Vector3>();
+    private List<Vector3> revObjsScaleOriginal = new List<Vector3>();
     private List<float> revObjsRot = new List<float>();
     
     private String revId;
@@ -186,6 +217,12 @@ public class SocketTest : MonoBehaviour {
     public Vector3 transformRevitCoords(Vector3 revitCoords) {
         // Inverse and flip y and z avis.
         return new Vector3(-revitCoords.x, -revitCoords.z, -revitCoords.y);
+    }
+
+    public void sendCmd(string command) {
+        Debug.Log("Sending Command:" + command);
+        byte[] msg = Encoding.ASCII.GetBytes(command);
+        handler.Send(msg);
     }
 
     public void sendBIMData(string ID, string key, string value) {
@@ -266,41 +303,50 @@ public class SocketTest : MonoBehaviour {
             }
             //newData = "";
             revObjsPos.Add(revObj.transform.position);
+            revObjsScale.Add(revObj.transform.localScale);
+            revObjsScaleOriginal.Add(revObj.transform.localScale);
             revObjsRot.Add(revObj.transform.localEulerAngles.y);
         //}
     }
 
     void recievedMDT(String serverMessage) // Triangles
     {
+        ElementMesh eleMesh = new ElementMesh();
+        eleMesh.meshCreator = meshCreator;
+        eleMesh.index = meshCreator.elementMeshArr.Count;
+        meshCreator.elementMeshArr.Add(eleMesh);
         serverMessage = serverMessage.Substring(3);
         String[] splitb = serverMessage.Split('#');
         Debug.Log("Splitting triangles for ID = " + splitb[0]);
         String[] splitTris = splitb[1].Split(' ');
-        meshCreator.newTriangles = new int[splitTris.Length-1];
+        meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].triangles = new int[splitTris.Length-1];
         int count = 0;
         foreach (String tri in splitTris) {
             if (tri.Length >= 1) {
-                meshCreator.newTriangles[count] = int.Parse(tri);
+                meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].triangles[count] = int.Parse(tri);
                 count++;
             }
             //Debug.Log("Tri:" + tri);
         }
+        meshCreator.index++;
     }
 
     public meshCreation meshCreator;
+    public bool receiveMeshDataCommand;
 
     void recievedMDV(String serverMessage) // Vertices
     {
         serverMessage = serverMessage.Substring(3);
         String[] splitb = serverMessage.Split('#');
         Debug.Log("Splitting vertices for ID = " + splitb[0]);
-        meshCreator.newVertices = new Vector3[splitb.Length-2];
+        meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].ID = splitb[0];
+        meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].vertices = new Vector3[splitb.Length-2];
         for (int i=1; i< splitb.Length; i++) {
             String[] xyzVert = splitb[i].Split(',');
             if (xyzVert.Length > 1) {
-                meshCreator.newVertices[i - 1].x = float.Parse(xyzVert[0].Trim());
-                meshCreator.newVertices[i - 1].y = float.Parse(xyzVert[1].Trim());
-                meshCreator.newVertices[i - 1].z = float.Parse(xyzVert[2].Trim());
+                meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].vertices[i - 1].x = float.Parse(xyzVert[0].Trim());
+                meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].vertices[i - 1].y = float.Parse(xyzVert[1].Trim());
+                meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].vertices[i - 1].z = float.Parse(xyzVert[2].Trim());
             }
         }
     }
@@ -313,17 +359,25 @@ public class SocketTest : MonoBehaviour {
         Debug.Log("ID=" + splitsb[0]);
         Debug.Log("VAL=" + splitsb[1]);
         GameObject revObj = FindGameObjectId(splitsb[0]);
-        if (GMD_Type == "POS") {
-            String[] xyz = splitsb[1].Split(',');
-            Vector3 rawRevitCoords = new Vector3(float.Parse(xyz[0]), float.Parse(xyz[1]), float.Parse(xyz[2]));
-            Vector3 coordinateTransform = transformRevitCoords(rawRevitCoords);
-            //Debug.Log("coordChange:" + coordinateTransform);
-            revObj.transform.position += coordinateTransform;
-        } else if (GMD_Type == "ROT") {
-            float rawRevitRot = float.Parse(splitsb[1]);
-            float rotationTransform = transformRevitRot(rawRevitRot);
-            Debug.Log(revObj.transform.name +" | Rot change:" + rotationTransform);
-            revObj.transform.localEulerAngles -= new Vector3(0f, rotationTransform, 0f);
+        if (revObj != null) {
+            if (GMD_Type == "POS") {
+                String[] xyz = splitsb[1].Split(',');
+                Vector3 rawRevitCoords = new Vector3(float.Parse(xyz[0]), float.Parse(xyz[1]), float.Parse(xyz[2]));
+                Vector3 coordinateTransform = transformRevitCoords(rawRevitCoords);
+                //Debug.Log("coordChange:" + coordinateTransform);
+                revObj.transform.position += coordinateTransform;
+            } else if (GMD_Type == "ROT") {
+                float rawRevitRot = float.Parse(splitsb[1]);
+                float rotationTransform = transformRevitRot(rawRevitRot);
+                Debug.Log(revObj.transform.name + " | Rot change:" + rotationTransform);
+                revObj.transform.localEulerAngles -= new Vector3(0f, rotationTransform, 0f);
+            } else if (GMD_Type == "SCALE") {
+                String[] xyz = splitsb[1].Split(',');
+                Vector3 rawRevitScale = new Vector3(float.Parse(xyz[0]), float.Parse(xyz[1]), float.Parse(xyz[2]));
+                revObj.transform.localScale = rawRevitScale;
+            }
+        } else {
+            throw new NullReferenceException("Unable to locate element ID = " + splitsb[0]);
         }
     }
 
@@ -369,7 +423,7 @@ public class SocketTest : MonoBehaviour {
 
                 // An incoming connection needs to be processed.
                 while (keepReading) {
-                    bytes = new byte[2048];
+                    bytes = new byte[20000]; //4096
                     int bytesRec = handler.Receive(bytes);
                     Debug.Log("Received from Server:" + bytesRec);
 
