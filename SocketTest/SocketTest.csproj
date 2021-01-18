@@ -769,6 +769,11 @@
     <Compile Include="Assets\IFCImporter\ScIFC\Util\IFCMaterialAssoc.cs" />
     <Compile Include="Assets\RevAttributes.cs" />
     <Compile Include="Assets\SocketTest.cs" />
+    <Compile Include="Assets\Triangulation\Edge.cs" />
+    <Compile Include="Assets\Triangulation\Plane.cs" />
+    <Compile Include="Assets\Triangulation\Triangle.cs" />
+    <Compile Include="Assets\Triangulation\Vertex.cs" />
+    <Compile Include="Assets\Triangulator.cs" />
     <Compile Include="Assets\Tridify\DemoAssets\FirstPersonController\CrossPlatformInputManager.cs" />
     <Compile Include="Assets\Tridify\DemoAssets\FirstPersonController\FirstPersonController.cs" />
     <Compile Include="Assets\Tridify\DemoAssets\FirstPersonController\MobileInput.cs" />

@@ -10,6 +10,7 @@ public class dataReader : MonoBehaviour {
     public string uvsFile = "uvs.txt";
 
     public int[] triangles;
+    public List<Vertex> convexVerts = new List<Vertex>();
     public Vector3[] vertices;
     public Vector2[] uvs;
 
@@ -52,6 +53,8 @@ public class dataReader : MonoBehaviour {
                 vertices[count].x = float.Parse(verts[2]);
                 vertices[count].y = float.Parse(verts[0]);
                 vertices[count].z = float.Parse(verts[1]);
+                Vertex vert = new Vertex(vertices[count]);
+                convexVerts.Add(vert);
                 count++;
             }
         }

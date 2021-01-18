@@ -84,14 +84,14 @@ namespace RevSocketing {
             sendMsgToServer(sendData);
         }
 
-        public void sendMeshData(string eleId, string meshData, string type) {
+        public void sendMeshData(string eleId, string meshData, string type, int trisCount) {
             string sendData = "";
             if (type == "tris")
             {
                 sendData = "MDT" + eleId + "#" + meshData;
             } else if (type == "verts")
             {
-                sendData = "MDV" + eleId + "#" + meshData;
+                sendData = "MDV" + eleId + "#" + trisCount + "#" + meshData;
             }
             sendMsgToServer(sendData);
         }

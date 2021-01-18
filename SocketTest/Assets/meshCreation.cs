@@ -34,6 +34,7 @@ public class meshCreation : MonoBehaviour
             obj.AddComponent<MeshRenderer>();
             Mesh mesh = obj.AddComponent<MeshFilter>().mesh;
             mesh.vertices = elementMeshArr[i].vertices;
+            elementMeshArr[i].triangles = new int[elementMeshArr[i].triSize];
             for (int n = 0; n < elementMeshArr[i].triangles.Length / 6; n++) {
                 elementMeshArr[i].triangles[n * 6 + 0] = n * 2;
                 elementMeshArr[i].triangles[n * 6 + 1] = n * 2 + 1;
@@ -65,42 +66,23 @@ public class meshCreation : MonoBehaviour
         }
         mesh.triangles = elementMeshArr[index].triangles;*/
         mesh.vertices = reader.vertices;
-        mesh.triangles = reader.triangles;
-        for (int i = 0; i < reader.triangles.Length / 6; i++) {
-            reader.triangles[i * 6 + 0] = i * 2;
-            reader.triangles[i * 6 + 1] = i * 2 + 1;
-            reader.triangles[i * 6 + 2] = i * 2 + 2;
+        //mesh.triangles = new int[204];
+        //for (int i = 0; i < reader.triangles.Length / 6; i++) {
+        int[] tris = new int[mesh.vertices.Length * 3];
+        for (int i = 0; i < (mesh.vertices.Length * 3) / 6; i++) {
+            tris[i * 6 + 0] = i * 2;
+            tris[i * 6 + 1] = i * 2 + 1;
+            tris[i * 6 + 2] = i * 2 + 2;
 
-            reader.triangles[i * 6 + 3] = i * 2 + 2;
-            reader.triangles[i * 6 + 4] = i * 2 + 1;
-            reader.triangles[i * 6 + 5] = i * 2 + 3;
-            /*reader.triangles[i * 6 + 0] = i * 2;
-            reader.triangles[i * 6 + 1] = i * 2 + 1;
-            reader.triangles[i * 6 + 2] = i * 2 + 2;
-
-            reader.triangles[i * 6 + 3] = i * 2 + 3;
-            reader.triangles[i * 6 + 4] = i * 2 + 1;
-            reader.triangles[i * 6 + 5] = i * 2;*/
-            /*testedTris.Add(i);
-            testedTris.Add(i+1);
-            testedTris.Add(i+2);
-
-            testedTris.Add(i);
-            testedTris.Add(i+2);
-            testedTris.Add(i+3);*/
-            /*reader.triangles[i] = i;
-            reader.triangles[i] = i + 1;
-            reader.triangles[i] = i + 2;
-
-            reader.triangles[i] = i;
-            reader.triangles[i] = i + 2;
-            reader.triangles[i] = i + 3;*/
+            tris[i * 6 + 3] = i * 2 + 2;
+            tris[i * 6 + 4] = i * 2 + 1;
+            tris[i * 6 + 5] = i * 2 + 3;
         }
-        mesh.triangles = reader.triangles;
+        mesh.triangles = tris;
         actualTris = mesh.triangles;
 
         //mesh.normals = meshToClone.normals;
-        Debug.Log(mesh.subMeshCount);
+        //Debug.Log(mesh.subMeshCount);
         /*newVertices = mesh.vertices;
         newUV = mesh.uv;
         newTriangles = mesh.triangles;*/

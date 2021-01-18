@@ -7,6 +7,7 @@ public class ElementMesh {
 
     public string ID, Name;
     public Vector3[] vertices;
+    public int triSize;
     public int[] triangles;
     public meshCreation meshCreator;
     public int index;

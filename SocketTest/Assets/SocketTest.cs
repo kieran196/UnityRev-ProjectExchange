@@ -339,16 +339,24 @@ public class SocketTest : MonoBehaviour {
         serverMessage = serverMessage.Substring(3);
         String[] splitb = serverMessage.Split('#');
         Debug.Log("Splitting vertices for ID = " + splitb[0]);
+        ElementMesh eleMesh = new ElementMesh();
+        eleMesh.meshCreator = meshCreator;
+        eleMesh.index = meshCreator.elementMeshArr.Count;
+        meshCreator.elementMeshArr.Add(eleMesh);
+
         meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].ID = splitb[0];
-        meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].vertices = new Vector3[splitb.Length-2];
-        for (int i=1; i< splitb.Length; i++) {
+        meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].triSize = int.Parse(splitb[1]);
+        meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].vertices = new Vector3[splitb.Length-3];
+        for (int i=2; i< splitb.Length; i++) {
+            Debug.Log(i + " | " + splitb[i]);
             String[] xyzVert = splitb[i].Split(',');
             if (xyzVert.Length > 1) {
-                meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].vertices[i - 1].x = float.Parse(xyzVert[0].Trim());
-                meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].vertices[i - 1].y = float.Parse(xyzVert[1].Trim());
-                meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].vertices[i - 1].z = float.Parse(xyzVert[2].Trim());
+                meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].vertices[i - 2].x = float.Parse(xyzVert[0].Trim());
+                meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].vertices[i - 2].y = float.Parse(xyzVert[1].Trim());
+                meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].vertices[i - 2].z = float.Parse(xyzVert[2].Trim());
             }
         }
+        meshCreator.index++;
     }
 
     void recievedGMD(String serverMessage, String GMD_Type) {

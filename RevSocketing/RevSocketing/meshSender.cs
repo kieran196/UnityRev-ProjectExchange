@@ -66,6 +66,7 @@ namespace RevSocketing
             Options geometryOptions = new Options();
             GeometryElement geoEle = e.get_Geometry(geometryOptions);
             string tris = "";
+            int trisCount = 0;
             string vertices = "";
             foreach (GeometryObject geoObject in geoEle)
             {
@@ -83,6 +84,7 @@ namespace RevSocketing
                             //getVertices(mesh.Vertices);
                             //getUVs(face, mesh.Vertices);
                             tris += getTris(face, mesh);
+                            trisCount += mesh.NumTriangles*3;
                             vertices += getVertices(mesh.Vertices);
                         }
                     }
@@ -94,7 +96,7 @@ namespace RevSocketing
                             Mesh mesh = face.Triangulate();
                             //getVertices(mesh.Vertices);
                             //getUVs(face, mesh.Vertices);
-                            tris += getTris(face, mesh);
+                            trisCount += mesh.NumTriangles * 3;
                             vertices += getVertices(mesh.Vertices);
                         }
                     } else {
@@ -102,9 +104,9 @@ namespace RevSocketing
                     }
                 }
             }
-            classInstance.sendMeshData(e.Id.ToString(), tris, "tris");
-            System.Threading.Thread.Sleep(100);
-            classInstance.sendMeshData(e.Id.ToString(), vertices, "verts");
+            //classInstance.sendMeshData(e.Id.ToString(), tris, "tris");
+            //System.Threading.Thread.Sleep(100);
+            classInstance.sendMeshData(e.Id.ToString(), vertices, "verts", trisCount);
             System.Threading.Thread.Sleep(100);
         }
 

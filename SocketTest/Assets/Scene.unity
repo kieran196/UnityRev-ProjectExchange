@@ -1851,6 +1851,7 @@ MonoBehaviour:
   verticesFile: vertices.txt
   uvsFile: uvs.txt
   triangles: 
+  convexVerts: []
   vertices: []
   uvs: []
 --- !u!1 &549894330
@@ -4890,6 +4891,7 @@ MonoBehaviour:
     36" x 84"# XYZ:(32.401529436, 12.851501581, 0.000000000) #ID:208f0560-9995-41cf-8f9f-a46e5b5c728f-000573a5'
   objMovedIndex: -1
   objRotatedIndex: -1
+  objScaleChangedIndex: -1
   revObjs: []
   revObjsPos: []
   meshCreator: {fileID: 537073535}
