@@ -23,16 +23,16 @@ namespace RevSocketing {
                 tx.Start("On Position Change Instance");
                 Element e = onIdPositionChanged(classInstance.ids);
                 Element e1 = onIdRotationChanged(classInstance.ids);
-                Element e2 = onIdScaleChanged(classInstance.ids);
+                //Element e2 = onIdScaleChanged(classInstance.ids);
                 if (e != null) {
                     sendData(e, "POS");
                 }
                 if (e1 != null) {
                     sendData(e1, "ROT");
                 }
-                if (e2 != null && !vectorIsOne(oldScale)) {
+                /*if (e2 != null && !vectorIsOne(oldScale)) {
                     sendData(e2, "SCALEM");
-                }
+                }*/
                 //tx.Commit();
             }
         }

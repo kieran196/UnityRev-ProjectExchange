@@ -323,7 +323,9 @@ public class SocketTest : MonoBehaviour {
         int count = 0;
         foreach (String tri in splitTris) {
             if (tri.Length >= 1) {
+                //Debug.Log(count + " | " + meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].triangles[count]);
                 meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].triangles[count] = int.Parse(tri);
+                //meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1]
                 count++;
             }
             //Debug.Log("Tri:" + tri);
@@ -335,6 +337,24 @@ public class SocketTest : MonoBehaviour {
     public bool receiveMeshDataCommand;
 
     void recievedMDV(String serverMessage) // Vertices
+    {
+        serverMessage = serverMessage.Substring(3);
+        String[] splitb = serverMessage.Split('#');
+        Debug.Log("Splitting vertices for ID = " + splitb[0]);
+        meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].ID = splitb[0];
+        meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].vertices = new Vector3[splitb.Length - 2];
+        for (int i = 1; i < splitb.Length; i++) {
+            String[] xyzVert = splitb[i].Split(',');
+            if (xyzVert.Length > 1) {
+                meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].vertices[i - 1].x = float.Parse(xyzVert[0].Trim());
+                meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].vertices[i - 1].y = float.Parse(xyzVert[1].Trim());
+                meshCreator.elementMeshArr[meshCreator.elementMeshArr.Count - 1].vertices[i - 1].z = float.Parse(xyzVert[2].Trim());
+            }
+        }
+    }
+
+    // For only recieving Vertices as opposed to Tris.
+    /*void recievedMDV(String serverMessage) // Vertices
     {
         serverMessage = serverMessage.Substring(3);
         String[] splitb = serverMessage.Split('#');
@@ -357,7 +377,7 @@ public class SocketTest : MonoBehaviour {
             }
         }
         meshCreator.index++;
-    }
+    }*/
 
     void recievedGMD(String serverMessage, String GMD_Type) {
         lastCallFromRevitClient = true;

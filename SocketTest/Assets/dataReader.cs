@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class dataReader : MonoBehaviour {
 
-    public string trianglesFile = "triangless.txt";
-    public string verticesFile = "verticess.txt";
-    public string uvsFile = "uvs.txt";
+    public string trianglesFile;
+    public string verticesFile;
+    public string uvsFile;
 
     public int[] triangles;
     public List<Vertex> convexVerts = new List<Vertex>();

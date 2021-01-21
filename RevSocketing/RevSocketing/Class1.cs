@@ -96,6 +96,16 @@ namespace RevSocketing {
             sendMsgToServer(sendData);
         }
 
+        public void sendMeshData(string eleId, string meshData, string type) {
+            string sendData = "";
+            if (type == "tris") {
+                sendData = "MDT" + eleId + "#" + meshData;
+            } else if (type == "verts") {
+                sendData = "MDV" + eleId + "#" + meshData;
+            }
+            sendMsgToServer(sendData);
+        }
+
         public void mainLoop() {
                 while (true) {
                     chPosEvent.Raise();
@@ -198,7 +208,7 @@ namespace RevSocketing {
             }
         }
 
-        private List<ElementId> getAllElementsInDoc(Document doc) {
+        private List<ElementId> getAllElementsInDocById(Document doc) {
             List<ElementId> elements = new List<ElementId>();
             FilteredElementCollector collector = new FilteredElementCollector(doc).WhereElementIsNotElementType();
             foreach (Element e in collector) {
@@ -207,6 +217,58 @@ namespace RevSocketing {
                 }
             }
             return elements;
+        }
+
+        private List<Element> getAllElementsInDoc(Document doc) {
+            List<Element> elements = new List<Element>();
+            FilteredElementCollector collector = new FilteredElementCollector(doc).WhereElementIsNotElementType();
+            foreach (Element e in collector) {
+                if (e.Category != null && e.Category.HasMaterialQuantities) {
+                    elements.Add(e);
+                }
+            }
+            return elements;
+        }
+
+        public Material GetMaterial(Document doc, FamilyInstance fi) {
+            Material material = null;
+            foreach (Parameter p in fi.Parameters) {
+                Definition def = p.Definition;
+
+                // the material is stored as element id:
+
+                if (p.StorageType == StorageType.ElementId
+                  && def.ParameterGroup == BuiltInParameterGroup.PG_MATERIALS
+                  && def.ParameterType == ParameterType.Material) {
+                    ElementId materialId = p.AsElementId();
+
+                    if (-1 == materialId.IntegerValue) {
+                        // invalid element id, so we assume
+                        // the material is "By Category":
+
+                        if (null != fi.Category) {
+                            material = fi.Category.Material;
+
+                            if (null == material) {
+                                //MaterialOther mat
+                                //  = doc.Settings.Materials.AddOther(
+                                //    "GoodConditionMat" ); // 2011
+
+                                ElementId id = Material.Create(doc, "GoodConditionMat"); // 2012
+                                Material mat = doc.GetElement(id) as Material;
+
+                                mat.Color = new Color(255, 0, 0);
+
+                                fi.Category.Material = mat;
+
+                                material = fi.Category.Material;
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+            return material;
         }
 
         // Revit API doesn't support new creation of parameters to elements programatically..
@@ -245,6 +307,26 @@ namespace RevSocketing {
             RawCreateProjectParameter(app, "newParamNameTest", ParameterType.Text, true, cats, BuiltInParameterGroup.PG_IDENTITY_DATA, true);
         }*/
 
+        public void GetMatPaints(Element e, Document doc) {
+            Options geometryOptions = new Options();
+            GeometryElement geoEle = e.get_Geometry(geometryOptions);
+            foreach (GeometryObject geoObject in geoEle) {
+                GeometryInstance geoInstance = geoObject as GeometryInstance;
+                if (geoInstance != null) {
+                    GeometryElement instanceGeometryElement = geoInstance.GetSymbolGeometry();
+                    foreach (GeometryObject instObj in instanceGeometryElement) {
+                        Solid solid = instObj as Solid;
+                        if (solid == null) return;
+                        foreach (Face face in solid.Faces) {
+                            ElementId mats = doc.GetPaintedMaterial(e.Id, face);
+                            Debug.WriteLine("Mat paint face:"+mats.ToString() + " | " + doc.IsPainted(e.Id, face));
+                            //doc.Paint()
+                        }
+                    }
+                }
+            }
+        }
+
         public Document uidoc = null;
         private ExternalEvent upEvent = null; // Update Pos Event
         private ExternalEvent obcEvent = null; // On BIM change Event
@@ -275,7 +357,9 @@ namespace RevSocketing {
             ConnectToTcpServer(commandData);
             //IList<Reference> pickedObjs = uiapp.ActiveUIDocument.Selection.PickObjects(ObjectType.Element, "Select elements");
             //ids = (from Reference r in pickedObjs select r.ElementId).ToList();
-            ids = getAllElementsInDoc(uidoc);
+            ids = getAllElementsInDocById(uidoc);
+            //List<Element> eles = getAllElementsInDoc(uidoc);
+
             onPositionChangeEvent.idCoordinates = new XYZ[ids.Count];
             onPositionChangeEvent.idBoundingBoxMax = new XYZ[ids.Count];
             onPositionChangeEvent.idBoundingBoxMaxOriginal = new XYZ[ids.Count];
@@ -305,41 +389,69 @@ namespace RevSocketing {
                 if (ids != null && ids.Count > 0) {
                     foreach (ElementId eid in ids) {
                         Element e = uidoc.GetElement(eid);
-                        /*if (eid.IntegerValue == 160200) {
-                            //Trigger
-                            onParamChangedEvent paramChangedEvent = new onParamChangedEvent();
-                            UpdaterRegistry.RegisterUpdater(paramChangedEvent, true);
-                            ElementClassFilter filter = new ElementClassFilter(typeof(Parameter));
-                            UpdaterRegistry.AddTrigger(paramChangedEvent.GetUpdaterId(), filter, Element.GetChangeTypeParameter(eid));
+                        //if (eid.IntegerValue == 160171) {
+                            /*if (e is FamilyInstance) {
+                                Material mat = GetMaterial(uidoc, e as FamilyInstance);
+                                if (mat != null) {
+                                Debug.WriteLine("Material Val:" + mat.Color.ToString());
+                            }
                         }*/
-                        /*if (eid.IntegerValue == 160200) {
-                            updateElementColor(uidoc, eid, 255, 255, 255);
-                            Category eleCat = e.Category;
-                            CategoryNameMap eleSubCats = eleCat.SubCategories;
-                            eleSubCats.get_Item("Architrave").Material.Color = new Color((byte)255, (byte)255, (byte)255);
-                        }*/
-                        /*if (eid.IntegerValue == 160171) {
-                            BoundingBoxXYZ bbox = e.get_BoundingBox(uidoc.ActiveView);
-                            XYZ bboxMax = bbox.Max;
-                            XYZ bboxMin = bbox.Min;
-                            Debug.WriteLine("Min:" + bboxMin + " | Max:" + bboxMax);
+                        if (eid.IntegerValue == 160200) {
+                            meshSend.sendMeshData(e);
+                        }
+                            //HostObject ho = e as HostObject;
+                            //CompoundStructure struc = ho.GetType() as CompoundStructure;
+                            /*   //List<ElementId> mats = e.GetMaterialIds(true).ToList();
+                               ICollection<ElementId> mats = e.GetMaterialIds(true);
+                               foreach (ElementId mat in mats) {
+                                   e.GetMaterialVolume(mat);
+                                   Material nmat = null;
+                                   nmat.AppearanceAssetId = mat;
+                                   Debug.WriteLine("Mat col:" + nmat.Color);
+                               }
+                               Material nmatt = null;
+                               nmatt.AppearanceAssetId = eid;
+                               Debug.WriteLine("Mat col:" + nmatt.Color);
+                            */
+                            //meshSend.sendMeshData(e);
+                            //}
+                            /*if (eid.IntegerValue == 160200) {
+                                //Trigger
+                                onParamChangedEvent paramChangedEvent = new onParamChangedEvent();
+                                UpdaterRegistry.RegisterUpdater(paramChangedEvent, true);
+                                ElementClassFilter filter = new ElementClassFilter(typeof(Parameter));
+                                UpdaterRegistry.AddTrigger(paramChangedEvent.GetUpdaterId(), filter, Element.GetChangeTypeParameter(eid));
+                            }*/
+                            /*if (eid.IntegerValue == 160200) {
+                                //uidoc.Paint(eid, 
+                                updateElementColor(uidoc, eid, 255, 255, 255);
+                                Category eleCat = e.Category;
+                                CategoryNameMap eleSubCats = eleCat.SubCategories;
+                                eleSubCats.get_Item("Architrave").Material.Color = new Color((byte)255, (byte)255, (byte)255);
+                            }*/
+                            /*if (eid.IntegerValue == 160171) {
+                                BoundingBoxXYZ bbox = e.get_BoundingBox(uidoc.ActiveView);
+                                XYZ bboxMax = bbox.Max;
+                                XYZ bboxMin = bbox.Min;
+                                Debug.WriteLine("Min:" + bboxMin + " | Max:" + bboxMax);
 
-                        }*/
-                        // Messing around with changing scale value..
-                        /*if (eid.IntegerValue == 160171) {
-                            Parameter p = e.get_Parameter(BuiltInParameter.FLOOR_HEIGHTABOVELEVEL_PARAM);
-                            Debug.WriteLine("Setting new param:" + p.AsInteger());
-                            p.Set(2);
-                            Debug.WriteLine("new param:" + p.AsInteger());
-                        }*/
-                        // Experimental.. Trying to send mesh data over network. (Mostly works)
-                        //meshSend.sendMeshData(e);
-                        onPositionChangeEvent.idCoordinates[loopCount] = XYZ.Zero;
+                            }*/
+                            // Messing around with changing scale value..
+                            /*if (eid.IntegerValue == 160171) {
+                                Parameter p = e.get_Parameter(BuiltInParameter.FLOOR_HEIGHTABOVELEVEL_PARAM);
+                                Debug.WriteLine("Setting new param:" + p.AsInteger());
+                                p.Set(2);
+                                Debug.WriteLine("new param:" + p.AsInteger());
+                            }*/
+                            // Experimental.. Trying to send mesh data over network. (Mostly works)
+                            //meshSend.sendMeshData(e);
+                            onPositionChangeEvent.idCoordinates[loopCount] = XYZ.Zero;
                         onPositionChangeEvent.idBoundingBoxMaxOriginal[loopCount] = XYZ.Zero;
                         onPositionChangeEvent.idBoundingBoxMax[loopCount] = XYZ.Zero;
                         onPositionChangeEvent.idBoundingBoxMin[loopCount] = XYZ.Zero;
                         onPositionChangeEvent.idRotations[loopCount] = 0;
                         if (e != null) {
+                            //GetMatPaints(e, uidoc);
                             ElementId neweid = e.Id;
                             Debug.WriteLine("Element ID:" + e.Id + " , " + e.UniqueId + " , " + neweid);
                             /*GeometryElement geoEle = e.get_Geometry(new Options());

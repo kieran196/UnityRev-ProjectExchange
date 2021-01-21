@@ -44,7 +44,10 @@ namespace RevSocketing
                 uint tri1 = tri.get_Index(0);
                 uint tri2 = tri.get_Index(1);
                 uint tri3 = tri.get_Index(2);
-                triangleStr += " " +tri1 + " " + tri2 + " " + tri3;
+                Debug.WriteLine(tri.get_Vertex(0) + " | " + tri);
+                Debug.WriteLine(tri.get_Vertex(1) + " | " + tri);
+                Debug.WriteLine(tri.get_Vertex(2) + " | " + tri);
+                triangleStr += " " +tri3 + " " + tri2 + " " + tri1;
                 //Debug.WriteLine("-Triangles-");
                 //Debug.WriteLine(tri1);
                 //Debug.WriteLine(tri2);
@@ -61,6 +64,8 @@ namespace RevSocketing
             }
             return triangleStr;
         }
+
+        private double MeshLOD = 1.0;
 
         public void sendMeshData(Element e) {
             Options geometryOptions = new Options();
@@ -80,7 +85,8 @@ namespace RevSocketing
                         if (solid == null) return;
                         foreach (Face face in solid.Faces)
                         {
-                            Mesh mesh = face.Triangulate();
+                            Mesh mesh = face.Triangulate(MeshLOD);
+                            Debug.WriteLine("Mat:" + mesh.MaterialElementId);
                             //getVertices(mesh.Vertices);
                             //getUVs(face, mesh.Vertices);
                             tris += getTris(face, mesh);
@@ -93,7 +99,8 @@ namespace RevSocketing
                     Solid solid = geoObject as Solid;
                     if (solid != null) {
                         foreach (Face face in solid.Faces) {
-                            Mesh mesh = face.Triangulate();
+                            Mesh mesh = face.Triangulate(MeshLOD);
+                            Debug.WriteLine("Mat:" + mesh.MaterialElementId);
                             //getVertices(mesh.Vertices);
                             //getUVs(face, mesh.Vertices);
                             trisCount += mesh.NumTriangles * 3;
@@ -104,10 +111,11 @@ namespace RevSocketing
                     }
                 }
             }
-            //classInstance.sendMeshData(e.Id.ToString(), tris, "tris");
-            //System.Threading.Thread.Sleep(100);
-            classInstance.sendMeshData(e.Id.ToString(), vertices, "verts", trisCount);
-            System.Threading.Thread.Sleep(100);
+            classInstance.sendMeshData(e.Id.ToString(), tris, "tris");
+            System.Threading.Thread.Sleep(200);
+            //classInstance.sendMeshData(e.Id.ToString(), vertices, "verts", trisCount);
+            classInstance.sendMeshData(e.Id.ToString(), vertices, "verts");
+            System.Threading.Thread.Sleep(200);
         }
 
     }

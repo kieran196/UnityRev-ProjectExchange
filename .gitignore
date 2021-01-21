@@ -173,6 +173,7 @@ FodyWeavers.xsd
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 SocketTest/Temp/*
+SocketTest/Assets/Floors/*
 SocketTest/Library/*
 SocketTest/Library/test.txt
 SocketTest/Library/ArtifactDB

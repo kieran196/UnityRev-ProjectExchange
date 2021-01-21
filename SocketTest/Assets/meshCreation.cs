@@ -12,9 +12,11 @@ public class meshCreation : MonoBehaviour
 
     public bool createMesh = false;
     public bool createAllMeshes = false;
+    public bool createMeshFromReader = false;
     public GameObject objToClone;
     public dataReader reader;
 
+    public Vector3[] clonedVerts;
     public int[] clonedTris;
     public int[] actualTris;
     public List<int> testedTris = new List<int>();
@@ -33,9 +35,11 @@ public class meshCreation : MonoBehaviour
             GameObject obj = new GameObject();
             obj.AddComponent<MeshRenderer>();
             Mesh mesh = obj.AddComponent<MeshFilter>().mesh;
+            obj.name = elementMeshArr[i].ID;
             mesh.vertices = elementMeshArr[i].vertices;
-            elementMeshArr[i].triangles = new int[elementMeshArr[i].triSize];
-            for (int n = 0; n < elementMeshArr[i].triangles.Length / 6; n++) {
+            System.Array.Reverse(elementMeshArr[i].triangles);
+            mesh.triangles = elementMeshArr[i].triangles;
+            /*for (int n = 0; n < elementMeshArr[i].triangles.Length / 6; n++) {
                 elementMeshArr[i].triangles[n * 6 + 0] = n * 2;
                 elementMeshArr[i].triangles[n * 6 + 1] = n * 2 + 1;
                 elementMeshArr[i].triangles[n * 6 + 2] = n * 2 + 2;
@@ -44,8 +48,23 @@ public class meshCreation : MonoBehaviour
                 elementMeshArr[i].triangles[n * 6 + 4] = n * 2 + 2; // Changed
                 elementMeshArr[i].triangles[n * 6 + 5] = n * 2 + 3;
             }
-            mesh.triangles = elementMeshArr[i].triangles;
+            mesh.triangles = elementMeshArr[i].triangles;*/
         }
+    }
+    public Vector3[] actualVerts;
+    void generateMeshFromReaderData()
+    {
+        clonedTris = objToClone.GetComponent<MeshFilter>().mesh.triangles;
+        clonedVerts = objToClone.GetComponent<MeshFilter>().mesh.vertices;
+        Mesh mesh = new Mesh();
+        GetComponent<MeshFilter>().mesh = mesh;
+        Mesh meshToClone = objToClone.GetComponent<MeshFilter>().mesh;
+        mesh.vertices = reader.vertices;
+        mesh.vertices = clonedVerts;
+        //System.Array.Reverse(reader.triangles);
+        mesh.triangles = reader.triangles;
+        actualVerts = mesh.vertices;
+        actualTris = mesh.triangles;
     }
 
     void generateMesh() {
@@ -101,6 +120,10 @@ public class meshCreation : MonoBehaviour
         {
             createMesh = false;
             generateMesh();
+        }
+        if (createMeshFromReader) {
+            createMeshFromReader = false;
+            generateMeshFromReaderData();
         }
     }
 }
