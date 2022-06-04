@@ -1,0 +1,18 @@
+{
+  "EmissiveShaderName": "Standard (Specular setup)",
+  "EmissiveLightLightmapSettingsPath": "Assets/Tridify/Lighting/EmissiveLightsGroup.giparams",
+  "EmissiveLightPointDistance": 3.8,
+  "EmissiveLightPointHeightDistance": 3.0,
+  "MinEmissiveLightScale": 0.1,
+  "MaxEmissiveLightScale": 1.5,
+  "EmissiveLightScaleModifier": 1.2,
+  "MinimumFloorRectWidth": 0.4,
+  "MinimumFloorRectHeight": 0.4,
+  "UniteOperationBlockAmount": 128,
+  "GridStepSize": 0.05,
+  "MinimumRectangleArea": 0.4,
+  "CornerProbesMinimumArea": 1.0,
+  "LowerLightProbeOffset": 0.2,
+  "HigherLightProbeOffset": 1.7,
+  "ProbePlacementDistance": 3.0
+}

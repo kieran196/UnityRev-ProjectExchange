@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <authoring_tool>Tridify Collada Exporter 1.0</authoring_tool>
+    </contributor>
+    <created>2020-09-28T03:33:20</created>
+    <modified>2020-09-28T03:33:20</modified>
+    <unit name="METER" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="SCO_Structural_Concrete_Insitu-fx">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <diffuse>
+              <color>0.627451 0.627451 0.627451 1.0</color>
+            </diffuse>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="SCO_Structural_Concrete_Insitu">
+      <instance_effect url="#SCO_Structural_Concrete_Insitu-fx"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="representation-2909073-layerset-2909094">
+      <mesh>
+        <source id="representation-2909073-layerset-2909094-positions">
+          <float_array id="representation-2909073-layerset-2909094-positions-array" count="108">18.0027 243.944 0.0 18.0027 243.944 -0.25 32.2566 229.691 0.0 32.2566 229.691 -0.25 32.2566 229.691 0.0 32.2566 229.691 -0.25 20.3012 217.735 0.0 20.3012 217.735 -0.25 20.3012 217.735 0.0 20.3012 217.735 -0.25 11.1796 226.857 0.0 11.1796 226.857 -0.25 11.1796 226.857 0.0 11.1796 226.857 -0.25 7.28227 222.959 0.0 7.28227 222.959 -0.25 7.28227 222.959 0.0 7.28227 222.959 -0.25 2.14995 228.092 0.0 2.14995 228.092 -0.25 2.14995 228.092 0.0 2.14995 228.092 -0.25 18.0027 243.944 0.0 18.0027 243.944 -0.25 18.0027 243.944 0.0 32.2566 229.691 0.0 20.3012 217.735 0.0 11.1796 226.857 0.0 7.28227 222.959 0.0 2.14995 228.092 0.0 18.0027 243.944 -0.25 32.2566 229.691 -0.25 20.3012 217.735 -0.25 11.1796 226.857 -0.25 7.28227 222.959 -0.25 2.14995 228.092 -0.25</float_array>
+          <technique_common>
+            <accessor source="#representation-2909073-layerset-2909094-positions-array" count="36" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="representation-2909073-layerset-2909094-normals">
+          <float_array id="representation-2909073-layerset-2909094-normals-array" count="108">0.707083 0.707083 0.0 0.707083 0.707083 0.0 0.707083 0.707083 0.0 0.707083 0.707083 0.0 0.707083 -0.707083 0.0 0.707083 -0.707083 0.0 0.707083 -0.707083 0.0 0.707083 -0.707083 0.0 -0.707083 -0.707083 0.0 -0.707083 -0.707083 0.0 -0.707083 -0.707083 0.0 -0.707083 -0.707083 0.0 0.707083 -0.707083 0.0 0.707083 -0.707083 0.0 0.707083 -0.707083 0.0 0.707083 -0.707083 0.0 -0.707083 -0.707083 0.0 -0.707083 -0.707083 0.0 -0.707083 -0.707083 0.0 -0.707083 -0.707083 0.0 -0.707083 0.707083 0.0 -0.707083 0.707083 0.0 -0.707083 0.707083 0.0 -0.707083 0.707083 0.0 0.0 0.0 1.0 0.0 0.0 0.999969 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 0.999969 0.0 0.0 -1.0 0.0 0.0 -0.999969 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -0.999969</float_array>
+          <technique_common>
+            <accessor source="#representation-2909073-layerset-2909094-normals-array" count="36" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="representation-2909073-layerset-2909094-texcoord-0">
+          <float_array id="representation-2909073-layerset-2909094-texcoord-0-array" count="72">-18.0027 0.0 -18.0027 -0.25 -32.2566 0.0 -32.2566 -0.25 229.691 0.0 229.691 -0.25 217.735 0.0 217.735 -0.25 20.3012 0.0 20.3012 -0.25 11.1796 0.0 11.1796 -0.25 11.1796 0.0 11.1796 -0.25 7.28227 0.0 7.28227 -0.25 -222.959 0.0 -222.959 -0.25 -228.092 0.0 -228.092 -0.25 -2.14995 0.0 -2.14995 -0.25 -18.0027 0.0 -18.0027 -0.25 18.0027 243.944 32.2566 229.691 20.3012 217.735 11.1796 226.857 7.28227 222.959 2.14995 228.092 -18.0027 243.944 -32.2566 229.691 -20.3012 217.735 -11.1796 226.857 -7.28227 222.959 -2.14995 228.092</float_array>
+          <technique_common>
+            <accessor source="#representation-2909073-layerset-2909094-texcoord-0-array" count="36" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="representation-2909073-layerset-2909094-texcoord-1">
+          <float_array id="representation-2909073-layerset-2909094-texcoord-1-array" count="72">0.993875 0.512579 1.0 0.512579 0.993875 0.0 1.0 0.0 2.54769e-07 1.0 0.00612506 1.0 0.0 0.570074 0.006125 0.570074 0.00612506 0.898092 0.0122501 0.898092 0.00612522 0.570074 0.01225 0.570074 0.018375 0.710223 0.0244999 0.710223 0.018375 0.570074 0.0244999 0.570074 0.0122501 0.754637 0.018375 0.754637 0.0122501 0.570074 0.018375 0.570074 0.98775 0.570073 0.993875 0.570073 0.98775 3.88e-07 0.993875 0.0 0.493877 0.570075 0.98775 0.570075 0.98775 0.140149 0.671703 0.140149 0.671703 0.0 0.493875 2.328e-06 0.493873 0.570074 3.7384e-07 0.570074 0.0 0.140149 0.316048 0.140149 0.316048 0.0 0.493875 1.94e-06</float_array>
+          <technique_common>
+            <accessor source="#representation-2909073-layerset-2909094-texcoord-1-array" count="36" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="representation-2909073-layerset-2909094-vertices">
+          <input semantic="POSITION" source="#representation-2909073-layerset-2909094-positions"/>
+        </vertices>
+        <triangles material="SCO_Structural_Concrete_Insitu" count="20">
+          <input semantic="VERTEX" source="#representation-2909073-layerset-2909094-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#representation-2909073-layerset-2909094-normals" offset="0"/>
+          <input semantic="TEXCOORD" source="#representation-2909073-layerset-2909094-texcoord-0" offset="0" set="0"/>
+          <input semantic="TEXCOORD" source="#representation-2909073-layerset-2909094-texcoord-1" offset="0" set="1"/>
+          <p>1 0 2 3 1 2 5 4 6 7 5 6 9 8 10 11 9 10 13 12 14 15 13 14 17 16 18 19 17 18 21 20 23 23 20 22 25 24 27 24 29 27 27 29 28 25 27 26 33 30 31 33 35 30 34 35 33 32 33 31 </p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="TridifyScene">
+      <node id="2PQj1yHDf8ZRGZ1yijXYku" name="2PQj1yHDf8ZRGZ1yijXYku" type="NODE">
+        <matrix sid="transform">0.996042 -0.0888798 0.0 0.0 0.0888798 0.996042 0.0 0.0 0.0 0.0 1.0 22.59 0.0 0.0 0.0 1.0</matrix>
+        <instance_geometry url="#representation-2909073-layerset-2909094">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="SCO_Structural_Concrete_Insitu" target="#SCO_Structural_Concrete_Insitu"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#TridifyScene"/>
+  </scene>
+</COLLADA>

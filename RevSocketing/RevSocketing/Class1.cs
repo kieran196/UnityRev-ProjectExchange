@@ -63,7 +63,7 @@ namespace RevSocketing {
                 byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(message);
                 Debug.WriteLine("Sending : " + message);
                 nwStream.Write(bytesToSend, 0, bytesToSend.Length);
-                Thread.Sleep(20); // 100ms sleep.
+                Thread.Sleep(200); // 100ms sleep.
             }
         }
 
@@ -396,9 +396,9 @@ namespace RevSocketing {
                                 Debug.WriteLine("Material Val:" + mat.Color.ToString());
                             }
                         }*/
-                        if (eid.IntegerValue == 160200) {
+                        /*if (eid.IntegerValue == 160200) {
                             meshSend.sendMeshData(e);
-                        }
+                        }*/
                             //HostObject ho = e as HostObject;
                             //CompoundStructure struc = ho.GetType() as CompoundStructure;
                             /*   //List<ElementId> mats = e.GetMaterialIds(true).ToList();
@@ -476,6 +476,14 @@ namespace RevSocketing {
                                 onPositionChangeEvent.idBoundingBoxMax[loopCount] = bbox.Max;
                                 onPositionChangeEvent.idBoundingBoxMax[loopCount] = bbox.Min;
                             }
+                            if (eid != null) {
+                                sb.Append("\n" + "ID:" + eid + "# ");
+                            }
+                            if (e.Name != null && e.Name.Length >= 2) {
+                                sb.Append(e.Name + "# ");
+                            } else {
+                                sb.Append("null # ");
+                            }
                             Autodesk.Revit.DB.LocationPoint positionPoint = e.Location as Autodesk.Revit.DB.LocationPoint;
                             if (positionPoint != null) { // Name -> XYZ Coords -> ID
                                 Debug.WriteLine("LocPoint="+ positionPoint.Point);
@@ -483,7 +491,10 @@ namespace RevSocketing {
                                 updatePosEvent.startingPos = Lp.Point;
                                 onPositionChangeEvent.idCoordinates[loopCount] = Lp.Point;
                                 onPositionChangeEvent.idRotations[loopCount] = Lp.Rotation;
-                                sb.Append("\n" + "ID:" + eid + "# " +e.Name + "# XYZ:" + Lp.Point + "#");
+                                //sb.Append("\n" + "ID:" + eid + "# " +e.Name + "# XYZ:" + Lp.Point + "#");
+                                sb.Append("XYZ:" + Lp.Point + "#");
+                            } else { // LocationPoint is null..
+                                sb.Append("XYZ:" + XYZ.Zero + "#");
                             }
                             foreach (Parameter param in e.Parameters) {
                                 //sb.Append("# " +GetParameterInformation(param, uidoc));
