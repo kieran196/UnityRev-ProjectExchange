@@ -1,2 +1,3 @@
-Change assembly directory of MyFirstPlugin.addin to the directory of the bin/Debug/.dll
+Run the Unity application to start the server.
 
+To start the Revit client listener - Move the RevSocketing addin into the Revit directory.

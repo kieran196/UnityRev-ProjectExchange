@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RevitAddIns>
  <AddIn Type="Command">
-       <Name>Lab1PlaceGroup</Name>
-       <FullClassName>Lab1PlaceGroup.Class1</FullClassName>
-       <Text>Lab1PlaceGroup</Text>
-       <Description>Places the Group at Particular Point</Description>
+       <Name>RevSocketing</Name>
+       <FullClassName>RevSocketing.socketClient</FullClassName>
+       <Text>RevSocketing</Text>
+       <Description>Revit plugin to connect Revit and Unity</Description>
        <VisibilityMode>AlwaysVisible</VisibilityMode>
-       <Assembly>C:\Users\maykw002\source\repos\Lab1PlaceGroup\Lab1PlaceGroup\bin\Debug\Lab1placeGroup.dll</Assembly>
+       <Assembly>D:\UnityRev-ProjectExchange\RevPlugin\RevSocketing\bin\Debug\RevSocketing.dll</Assembly>
        <AddInId>502fe183-2648-4e28-adf8-5e6047f9dc39</AddInId>
     <VendorId>ADSK</VendorId>
     <VendorDescription>Autodesk, Inc, www.autodesk.com</VendorDescription>
